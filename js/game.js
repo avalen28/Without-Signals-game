@@ -22,7 +22,15 @@ class Game {
   }
 
   soldierAttack() {
-    const tyranidDamage = this.tyranid.receiveDamage(this.soldier.strength);
+    this.tyranid.receiveDamage(this.soldier.strength);
+    if (this.tyranid.health > 0) {
+      this._tyranidAttack();
+    } else {
+      console.log("end of figth!");
+    }
+  }
+  _tyranidAttack() {
+    this.soldier.receiveDamage(this.tyranid.strength);
   }
   _update() {
     window.requestAnimationFrame(() => this._update());
