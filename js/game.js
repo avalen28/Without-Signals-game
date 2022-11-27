@@ -1,6 +1,7 @@
 class Game {
-  constructor(context) {
-    this.ctx = context;
+  constructor(contextMap, contextFight) {
+    this.ctxMap = contextMap;
+    this.ctxFight = contextFight;
     this.soldier = new Soldier();
     this.tyranid = new Tyranid();
   }

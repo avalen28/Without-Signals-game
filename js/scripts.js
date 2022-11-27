@@ -1,13 +1,15 @@
 window.onload = function () {
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  const startPage = document.getElementById('start-page');
-  const startButton = document.getElementById('start');
-  
+  const canvasMap = document.getElementById("canvas-map");
+  const ctxMap = canvasMap.getContext("2d");
+  const canvasFight = document.getElementById("canvas-fight");
+  const ctxFight = canvasFight.getContext("2d");
+  const startPage = document.getElementById("start-page");
+  const startButton = document.getElementById("start");
+
   startButton.onclick = function () {
     startPage.style = "display: none";
-    canvas.classList.remove('hidden');
-    const game = new Game(ctx);
+    canvasMap.classList.remove("hidden");
+    const game = new Game(ctxMap, ctxFight);
     game.start();
-  }
-}
+  };
+};
