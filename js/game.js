@@ -32,11 +32,33 @@ class Game {
   _tyranidAttack() {
     this.soldier.receiveDamage(this.tyranid.strength);
   }
+  _drawSoldier() {
+    this.ctxMap.fillStyle = "red";
+    this.ctxMap.fillRect(
+      this.soldier.x,
+      this.soldier.y,
+      this.soldier.width,
+      this.soldier.height
+    );
+  }
+  _drawTyranid() {
+    this.ctxMap.fillStyle = "green";
+    this.ctxMap.fillRect(
+      this.tyranid.x,
+      this.tyranid.y,
+      this.tyranid.width,
+      this.tyranid.height
+    );
+  }
   _update() {
     window.requestAnimationFrame(() => {
       this._update();
       //here drawMethods
-      //check colision
+      this._drawSoldier();
+      this._drawTyranid();
+      //check colision()
+      //  colision1()
+      //  colision2()
       // todas las funciones que se deben estar constantemente ejecutando
     });
   }
