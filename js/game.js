@@ -1,17 +1,19 @@
-class Game{
+class Game {
   constructor(context) {
     this.ctx = context;
+    this.soldier = new Soldier();
+    this.tyranid = new Tyranid();
   }
 
   _assignControls() {
     // Controles del teclado
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener("keydown", (event) => {
       switch (event.code) {
-        case 'ArrowLeft':
-          this.meatball.moveLeft();
+        case "ArrowLeft":
+          this.soldier.moveLeft();
           break;
-        case 'ArrowRight':
-          this.meatball.moveRight();
+        case "ArrowRight":
+          this.soldier.moveRight();
           break;
         default:
           break;
@@ -19,6 +21,9 @@ class Game{
     });
   }
 
+  soldierAttack() {
+    const tyranidDamage = this.tyranid.receiveDamage(this.soldier.strength);
+  }
   _update() {
     window.requestAnimationFrame(() => this._update());
   }

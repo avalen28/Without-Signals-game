@@ -13,8 +13,8 @@ Run across the map, fight for your live and arrive to the exit.
 
 Minimum user stories:
 
--- Move left or right your soldier.
--- On determinate position, one Alien attacks.
+-- User can move left or right your soldier.
+-- On determinate position, user recive one Alien attack.
 -- The soldier and the Alien fight on a basic style (strenght vs healt points)
 -- If the Alien wins, end game. lose screen.
 -- If the soldier wins, the player keep walking to the exit.
