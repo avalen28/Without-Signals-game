@@ -7,9 +7,7 @@ class Soldier {
     this.width = 100;
     this.height = 100;
   }
-  attack() {
-    return this.strength;
-  }
+
   receiveDamage(damage) {
     this.health = this.health - damage;
     if (this.health > 0) {
