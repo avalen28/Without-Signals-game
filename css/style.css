@@ -19,9 +19,10 @@
   margin-top: 30px;
 }
 
-#lose-page {
+#lose-page,#win-page {
   display: none;
 }
+
 
 canvas {
   border: 1px solid black;
