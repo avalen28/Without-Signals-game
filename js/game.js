@@ -6,11 +6,13 @@ class Game {
     this.tyranid = new Tyranid();
   }
   // Move method (WIP)
+
   _assignControls() {
     document.addEventListener("keydown", (event) => {
       switch (event.code) {
         case "ArrowLeft":
           this.soldier.moveLeft();
+
           break;
         case "ArrowRight":
           this.soldier.moveRight();
@@ -31,6 +33,10 @@ class Game {
   }
   _tyranidAttack() {
     this.soldier.receiveDamage(this.tyranid.strength);
+  }
+  // draw & clean methods
+  _cleanCanvasMap() {
+    this.ctxMap.clearRect(0, 0, 1000, 600);
   }
   _drawSoldier() {
     this.ctxMap.fillStyle = "red";
@@ -53,7 +59,8 @@ class Game {
   _update() {
     window.requestAnimationFrame(() => {
       this._update();
-      //here drawMethods
+      //here drawMethods & clean
+      this._cleanCanvasMap();
       this._drawSoldier();
       this._drawTyranid();
       //check colision()

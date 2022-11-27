@@ -16,4 +16,10 @@ class Soldier {
       console.log("You died in the name of the Emperor");
     }
   }
+  moveLeft() {
+    this.x = this.x - 3;
+  }
+  moveRight() {
+    this.x = this.x + 3;
+  }
 }

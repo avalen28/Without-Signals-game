@@ -3,7 +3,7 @@ class Tyranid {
     this.health = 100;
     this.strength = 20;
     this.x = 400;
-    this.y = -100;
+    this.y = 100;
     this.width = 100;
     this.height = 100;
   }
