@@ -12,7 +12,6 @@ class Game {
       switch (event.code) {
         case "ArrowLeft":
           this.soldier.moveLeft();
-
           break;
         case "ArrowRight":
           this.soldier.moveRight();
@@ -56,6 +55,20 @@ class Game {
       this.tyranid.height
     );
   }
+
+  // Colisions&checkpoints
+  _tyranidMoveDown() {
+    if (this.tyranid.y + this.tyranid.height < this.soldier.y) {
+      this.tyranid.y = this.tyranid.y + 10;
+    }
+  }
+  _colisionSoldier() {
+    if (this.soldier.x > 400) {
+      this.soldier.movement = false;
+      this._tyranidMoveDown();
+    }
+  }
+  //permaworking
   _update() {
     window.requestAnimationFrame(() => {
       this._update();
@@ -64,7 +77,7 @@ class Game {
       this._drawSoldier();
       this._drawTyranid();
       //check colision()
-      //  colision1()
+      this._colisionSoldier();
       //  colision2()
       // todas las funciones que se deben estar constantemente ejecutando
     });

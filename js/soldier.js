@@ -6,6 +6,7 @@ class Soldier {
     this.y = 400;
     this.width = 100;
     this.height = 100;
+    this.movement = true;
   }
 
   receiveDamage(damage) {
@@ -17,9 +18,13 @@ class Soldier {
     }
   }
   moveLeft() {
-    this.x = this.x - 3;
+    if (this.movement) {
+      this.x = this.x - 15;
+    }
   }
   moveRight() {
-    this.x = this.x + 3;
+    if (this.movement) {
+      this.x = this.x + 15;
+    }
   }
 }
