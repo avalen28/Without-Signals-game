@@ -22,10 +22,16 @@
 #lose-page,#win-page {
   display: none;
 }
-
+#fight-event{
+  background-color: brown;
+  width: auto;
+  height: 100px;
+  align-self: center;
+}
 
 canvas {
   border: 1px solid black;
+  background-color: lightblue;
   display: block;
   margin: 0 auto;
   margin-top: 30px;

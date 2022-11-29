@@ -5,7 +5,7 @@ class Game {
     this.soldier = new Soldier();
     this.tyranid = new Tyranid();
   }
-  // Move method (WIP)
+  // ---------------------Move method (WIP)
 
   _assignControls() {
     document.addEventListener("keydown", (event) => {
@@ -21,7 +21,7 @@ class Game {
       }
     });
   }
-  // fight method
+  // ---------------------fight method
   soldierAttack() {
     if (this.tyranid.health < 0) {
       console.log("You destroy this horrible creature!");
@@ -30,7 +30,10 @@ class Game {
     } else if (this.soldier.health > 0 && this.tyranid.health > 0) {
       this.tyranid.receiveDamage(this.soldier.strength);
     }
+    this._comeback(); // comentario ALE
   }
+  //_comeback() { // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
+
   _tyranidAttack() {
     if (this.tyranid.health > 0) {
       this.soldier.receiveDamage(this.tyranid.strength);
@@ -38,7 +41,7 @@ class Game {
       console.log("grrrr....");
     }
   }
-  // draw & clean methods
+  // ---------------------draw & clean methods
   _cleanCanvasMap() {
     this.ctxMap.clearRect(0, 0, 1000, 600);
   }
@@ -61,7 +64,7 @@ class Game {
     );
   }
 
-  // Colisions&checkpoints
+  // ---------------------Colisions&checkpoints
   _tyranidMoveDown() {
     if (this.tyranid.y + this.tyranid.height < this.soldier.y) {
       this.tyranid.y = this.tyranid.y + 10;
@@ -69,7 +72,6 @@ class Game {
   }
   _colisionSoldier() {
     //trap-libertate-movement.
-
     if (this.soldier.x > 400 && this.tyranid.health > 0) {
       this.soldier.movement = false;
       this._tyranidMoveDown();
@@ -82,7 +84,7 @@ class Game {
       this.soldier.movement = false;
     }
   }
-  //permaworking
+  //---------------------permaworking
   _update() {
     window.requestAnimationFrame(() => {
       this._update();
@@ -90,10 +92,8 @@ class Game {
       this._cleanCanvasMap();
       this._drawSoldier();
       this._drawTyranid();
-      //check colision()
       this._colisionSoldier();
       this._endRouteSoldier();
-      //  colision2()
       // todas las funciones que se deben estar constantemente ejecutando
     });
   }
