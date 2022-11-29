@@ -63,9 +63,12 @@ class Game {
     }
   }
   _colisionSoldier() {
-    if (this.soldier.x > 400) {
+    //trap-libertate-movement.
+    if (this.soldier.x > 400 && this.tyranid.health > 0) {
       this.soldier.movement = false;
       this._tyranidMoveDown();
+    } else {
+      this.soldier.movement = true;
     }
   }
   //permaworking
