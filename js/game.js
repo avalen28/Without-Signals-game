@@ -23,15 +23,20 @@ class Game {
   }
   // fight method
   soldierAttack() {
-    this.tyranid.receiveDamage(this.soldier.strength);
-    if (this.tyranid.health > 0) {
-      this._tyranidAttack();
-    } else {
-      console.log("end of figth!");
+    if (this.tyranid.health < 0) {
+      console.log("You destroy this horrible creature!");
+    } else if (this.soldier.health < 0) {
+      console.log("You die in the name of the Emperor...");
+    } else if (this.soldier.health > 0 && this.tyranid.health > 0) {
+      this.tyranid.receiveDamage(this.soldier.strength);
     }
   }
   _tyranidAttack() {
-    this.soldier.receiveDamage(this.tyranid.strength);
+    if (this.tyranid.health > 0) {
+      this.soldier.receiveDamage(this.tyranid.strength);
+    } else {
+      console.log("grrrr....");
+    }
   }
   // draw & clean methods
   _cleanCanvasMap() {

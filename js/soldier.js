@@ -12,7 +12,9 @@ class Soldier {
   receiveDamage(damage) {
     this.health = this.health - damage;
     if (this.health > 0) {
-      console.log(`You receive ${damage} points of damage!`);
+      console.log(
+        `You receive ${damage} points of damage! Health remaining:${this.health}hp`
+      );
     } else {
       console.log("You died in the name of the Emperor");
     }
