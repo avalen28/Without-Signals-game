@@ -64,11 +64,17 @@ class Game {
   }
   _colisionSoldier() {
     //trap-libertate-movement.
+
     if (this.soldier.x > 400 && this.tyranid.health > 0) {
       this.soldier.movement = false;
       this._tyranidMoveDown();
     } else {
       this.soldier.movement = true;
+    }
+  }
+  _endRouteSoldier() {
+    if (this.soldier.x > 1000) {
+      this.soldier.movement = false;
     }
   }
   //permaworking
@@ -81,6 +87,7 @@ class Game {
       this._drawTyranid();
       //check colision()
       this._colisionSoldier();
+      this._endRouteSoldier();
       //  colision2()
       // todas las funciones que se deben estar constantemente ejecutando
     });
