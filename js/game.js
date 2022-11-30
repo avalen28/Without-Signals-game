@@ -1,10 +1,11 @@
 class Game {
-  constructor(contextMap, contextFight, fightEvent) {
+  constructor(contextMap, contextFight, fightEvent, startFightButton) {
     this.ctxMap = contextMap;
     this.ctxFight = contextFight;
     this.soldier = new Soldier();
     this.tyranid = new Tyranid();
     this.fightEvent = fightEvent;
+    this.startFightButton = startFightButton;
   }
   // ---------------------Move method (WIP)
 
@@ -28,6 +29,7 @@ class Game {
       this.fightEvent.classList.remove("hidden");
     }, 1000);
   }
+
   // ---------------------fight method
   soldierAttack() {
     this.tyranid.receiveDamage(this.soldier.strength);
@@ -110,5 +112,8 @@ class Game {
   start() {
     this._assignControls();
     this._update();
+    this.startFightButton.onclick = function () {
+      console.log("empieza la fight");
+    };
   }
 }

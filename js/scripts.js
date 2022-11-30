@@ -6,11 +6,12 @@ window.onload = function () {
   const startPage = document.getElementById("start-page");
   const startButton = document.getElementById("start");
   const fightEvent = document.getElementById("fight-event");
+  const startFightButton = document.getElementById("start-fight");
 
   startButton.onclick = function () {
     startPage.style = "display: none";
     canvasMap.classList.remove("hidden");
-    const game = new Game(ctxMap, ctxFight, fightEvent);
+    const game = new Game(ctxMap, ctxFight, fightEvent, startFightButton);
     game.start();
   };
 };
