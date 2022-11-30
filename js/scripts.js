@@ -5,11 +5,12 @@ window.onload = function () {
   const ctxFight = canvasFight.getContext("2d");
   const startPage = document.getElementById("start-page");
   const startButton = document.getElementById("start");
+  const fightEvent = document.getElementById("fight-event");
 
   startButton.onclick = function () {
     startPage.style = "display: none";
     canvasMap.classList.remove("hidden");
-    const game = new Game(ctxMap, ctxFight);
+    const game = new Game(ctxMap, ctxFight, fightEvent);
     game.start();
   };
 };

@@ -1,9 +1,10 @@
 class Game {
-  constructor(contextMap, contextFight) {
+  constructor(contextMap, contextFight, fightEvent) {
     this.ctxMap = contextMap;
     this.ctxFight = contextFight;
     this.soldier = new Soldier();
     this.tyranid = new Tyranid();
+    this.fightEvent = fightEvent;
   }
   // ---------------------Move method (WIP)
 
@@ -21,25 +22,27 @@ class Game {
       }
     });
   }
+  //---------------------- display methods
+  _displayFightEvent() {
+    setTimeout(() => {
+      this.fightEvent.classList.remove("hidden");
+    }, 1000);
+  }
   // ---------------------fight method
   soldierAttack() {
-    if (this.tyranid.health < 0) {
-      console.log("You destroy this horrible creature!");
-    } else if (this.soldier.health < 0) {
-      console.log("You die in the name of the Emperor...");
-    } else if (this.soldier.health > 0 && this.tyranid.health > 0) {
-      this.tyranid.receiveDamage(this.soldier.strength);
-    }
-    this._comeback(); // comentario ALE
+    this.tyranid.receiveDamage(this.soldier.strength);
+    this._comeback();
   }
-  //_comeback() { // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
-
-  _tyranidAttack() {
-    if (this.tyranid.health > 0) {
-      this.soldier.receiveDamage(this.tyranid.strength);
+  _comeback() {
+    // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
+    if (this.tyranid.health <= 0) {
+      console.log("grrrrr....");
     } else {
-      console.log("grrrr....");
+      setTimeOut(() => this._tyranidAttack(), 2000);
     }
+  }
+  _tyranidAttack() {
+    this.soldier.receiveDamage(this.tyranid.strength);
   }
   // ---------------------draw & clean methods
   _cleanCanvasMap() {
@@ -70,13 +73,18 @@ class Game {
       this.tyranid.y = this.tyranid.y + 10;
     }
   }
-  _colisionSoldier() {
+  _checkCollisionTrap() {
     //trap-libertate-movement.
     if (this.soldier.x > 400 && this.tyranid.health > 0) {
       this.soldier.movement = false;
       this._tyranidMoveDown();
     } else {
       this.soldier.movement = true;
+    }
+  }
+  _checkCollisionSoldierTyranid() {
+    if (this.tyranid.y + this.tyranid.height === this.soldier.y) {
+      this._displayFightEvent();
     }
   }
   _endRouteSoldier() {
@@ -92,7 +100,8 @@ class Game {
       this._cleanCanvasMap();
       this._drawSoldier();
       this._drawTyranid();
-      this._colisionSoldier();
+      this._checkCollisionTrap();
+      this._checkCollisionSoldierTyranid();
       this._endRouteSoldier();
       // todas las funciones que se deben estar constantemente ejecutando
     });

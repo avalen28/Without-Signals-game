@@ -22,6 +22,8 @@
 #lose-page,#win-page {
   display: none;
 }
+
+/* ----------------- events styles ----------*/
 #fight-event{
   background-color: brown;
   width: auto;
@@ -29,10 +31,17 @@
   align-self: center;
 }
 
-canvas {
+/* ----------------- canvas styles ----------*/
+#canvas-map {
   border: 1px solid black;
   background-color: lightblue;
-  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+#canvas-fight {
+  border: 1px solid black;
+  background-color: rgb(230, 225, 173);
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 50px;
