@@ -46,9 +46,16 @@ class Game {
   _hideMapCanvas() {
     this.canvasMap.classList.add("hidden");
   }
+  _showMapCanvas() {
+    this.canvasMap.classList.remove("hidden");
+  }
   _showFightCanvas() {
     this.canvasFight.classList.remove("hidden");
     this.attackButton.classList.remove("hidden");
+  }
+  _hideFightCanvas() {
+    this.canvasFight.classList.add("hidden");
+    this.attackButton.classList.add("hidden");
   }
 
   // ---------------------fight method
@@ -60,6 +67,12 @@ class Game {
     // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
     if (this.tyranid.health <= 0) {
       console.log("grrrrr....");
+      setTimeout(() => {
+        this.drawCanvasFight = false;
+        this._hideFightCanvas();
+        this.drawCanvasMap = true;
+        this._showMapCanvas();
+      }, 1000);
     } else {
       setTimeout(() => this._tyranidAttack(), 2000);
     }
