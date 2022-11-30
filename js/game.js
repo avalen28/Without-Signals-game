@@ -8,12 +8,15 @@ class Game {
     startFightButton
   ) {
     this.canvasMap = canvasMap;
+    this.drawCanvasMap = true;
     this.canvasFight = canvasFight;
+    this.drawCanvasFight = false;
     this.ctxMap = contextMap;
     this.ctxFight = contextFight;
     this.soldier = new Soldier();
     this.tyranid = new Tyranid();
     this.fightEvent = fightEvent;
+    this.fightEventIsActive = false;
     this.startFightButton = startFightButton;
   }
   // ---------------------Move method (WIP)
@@ -99,7 +102,11 @@ class Game {
     }
   }
   _checkCollisionSoldierTyranid() {
-    if (this.tyranid.y + this.tyranid.height === this.soldier.y) {
+    if (
+      this.tyranid.y + this.tyranid.height === this.soldier.y &&
+      !this.fightEventIsActive
+    ) {
+      this.fightEventIsActive = true;
       this._displayFightEvent();
     }
   }
@@ -112,14 +119,17 @@ class Game {
   _update() {
     window.requestAnimationFrame(() => {
       this._update();
-      //here drawMethods & clean
-      this._cleanCanvasMap();
-      this._drawSoldier();
-      this._drawTyranid();
-      this._checkCollisionTrap();
-      this._checkCollisionSoldierTyranid();
-      this._endRouteSoldier();
-      // todas las funciones que se deben estar constantemente ejecutando
+      if (this.drawCanvasMap) {
+        this._cleanCanvasMap();
+        this._drawSoldier();
+        this._drawTyranid();
+        this._checkCollisionTrap();
+        this._checkCollisionSoldierTyranid();
+        this._endRouteSoldier();
+        // todas las funciones que se deben estar constantemente ejecutando
+      } else if (this.drawCanvasFight) {
+        console.log("padre lo del fight");
+      }
     });
   }
 
@@ -127,9 +137,11 @@ class Game {
     this._assignControls();
     this._update();
     this.startFightButton.onclick = () => {
-      console.log("empieza la fight");
+      this.fightEvent.classList.add("hidden");
       this._hideMapCanvas();
       this._showFightCanvas();
+      this.drawCanvasMap = false;
+      this.drawCanvasFight = true;
     };
   }
 }
