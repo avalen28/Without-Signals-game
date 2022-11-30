@@ -5,8 +5,7 @@
 
 /* Basic styles, change according to your style */
 
-#start-page,
-#lose-page {
+#start-page{
   height: 600px;
   width: 1000px;
   display: flex;
@@ -19,9 +18,6 @@
   margin-top: 30px;
 }
 
-#lose-page,#win-page {
-  display: none;
-}
 
 /* ----------------- events styles ----------*/
 #fight-event{
