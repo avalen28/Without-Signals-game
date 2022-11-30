@@ -11,7 +11,14 @@ window.onload = function () {
   startButton.onclick = function () {
     startPage.style = "display: none";
     canvasMap.classList.remove("hidden");
-    const game = new Game(ctxMap, ctxFight, fightEvent, startFightButton);
+    const game = new Game(
+      canvasMap,
+      canvasFight,
+      ctxMap,
+      ctxFight,
+      fightEvent,
+      startFightButton
+    );
     game.start();
   };
 };

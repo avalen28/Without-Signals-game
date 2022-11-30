@@ -1,5 +1,14 @@
 class Game {
-  constructor(contextMap, contextFight, fightEvent, startFightButton) {
+  constructor(
+    canvasMap,
+    canvasFight,
+    contextMap,
+    contextFight,
+    fightEvent,
+    startFightButton
+  ) {
+    this.canvasMap = canvasMap;
+    this.canvasFight = canvasFight;
     this.ctxMap = contextMap;
     this.ctxFight = contextFight;
     this.soldier = new Soldier();
@@ -29,7 +38,12 @@ class Game {
       this.fightEvent.classList.remove("hidden");
     }, 1000);
   }
-
+  _hideMapCanvas() {
+    this.canvasMap.classList.add("hidden");
+  }
+  _showFightCanvas() {
+    this.canvasFight.classList.remove("hidden");
+  }
   // ---------------------fight method
   soldierAttack() {
     this.tyranid.receiveDamage(this.soldier.strength);
@@ -112,8 +126,10 @@ class Game {
   start() {
     this._assignControls();
     this._update();
-    this.startFightButton.onclick = function () {
+    this.startFightButton.onclick = () => {
       console.log("empieza la fight");
+      this._hideMapCanvas();
+      this._showFightCanvas();
     };
   }
 }
