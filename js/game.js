@@ -5,7 +5,8 @@ class Game {
     contextMap,
     contextFight,
     fightEvent,
-    startFightButton
+    startFightButton,
+    attackButton
   ) {
     this.canvasMap = canvasMap;
     this.drawCanvasMap = true;
@@ -18,6 +19,7 @@ class Game {
     this.fightEvent = fightEvent;
     this.fightEventIsActive = false;
     this.startFightButton = startFightButton;
+    this.attackButton = attackButton;
   }
   // ---------------------Move method (WIP)
 
@@ -46,7 +48,9 @@ class Game {
   }
   _showFightCanvas() {
     this.canvasFight.classList.remove("hidden");
+    this.attackButton.classList.remove("hidden");
   }
+
   // ---------------------fight method
   soldierAttack() {
     this.tyranid.receiveDamage(this.soldier.strength);
@@ -57,7 +61,7 @@ class Game {
     if (this.tyranid.health <= 0) {
       console.log("grrrrr....");
     } else {
-      setTimeOut(() => this._tyranidAttack(), 2000);
+      setTimeout(() => this._tyranidAttack(), 2000);
     }
   }
   _tyranidAttack() {
@@ -155,6 +159,9 @@ class Game {
       this._showFightCanvas();
       this.drawCanvasMap = false;
       this.drawCanvasFight = true;
+    };
+    this.attackButton.onclick = () => {
+      this.soldierAttack();
     };
   }
 }

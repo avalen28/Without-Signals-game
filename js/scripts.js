@@ -7,6 +7,7 @@ window.onload = function () {
   const startButton = document.getElementById("start");
   const fightEvent = document.getElementById("fight-event");
   const startFightButton = document.getElementById("start-fight");
+  const attackButton = document.getElementById("attack-button");
 
   startButton.onclick = function () {
     startPage.style = "display: none";
@@ -17,7 +18,8 @@ window.onload = function () {
       ctxMap,
       ctxFight,
       fightEvent,
-      startFightButton
+      startFightButton,
+      attackButton
     );
     game.start();
   };
