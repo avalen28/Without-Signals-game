@@ -85,6 +85,17 @@ class Game {
       this.tyranid.height
     );
   }
+  _cleanCanvasFight() {
+    this.ctxFight.clearRect(0, 0, 1000, 600);
+  }
+  _drawSoldierFight() {
+    this.ctxFight.fillStyle = "red";
+    this.ctxFight.fillRect(100, 100, 75, 150);
+  }
+  _drawTyranidFight() {
+    this.ctxFight.fillStyle = "green";
+    this.ctxFight.fillRect(600, 100, 75, 150);
+  }
 
   // ---------------------Colisions&checkpoints
   _tyranidMoveDown() {
@@ -128,7 +139,9 @@ class Game {
         this._endRouteSoldier();
         // todas las funciones que se deben estar constantemente ejecutando
       } else if (this.drawCanvasFight) {
-        console.log("padre lo del fight");
+        this._cleanCanvasFight();
+        this._drawSoldierFight();
+        this._drawTyranidFight();
       }
     });
   }
