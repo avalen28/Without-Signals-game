@@ -7,7 +7,11 @@ class Game {
     fightEvent,
     startFightButton,
     attackButton,
-    winPage
+    winPage,
+    soldierMsg,
+    tyranidMsg,
+    soldierStats,
+    tyranidStats
   ) {
     this.canvasMap = canvasMap;
     this.drawCanvasMap = true;
@@ -22,6 +26,10 @@ class Game {
     this.startFightButton = startFightButton;
     this.attackButton = attackButton;
     this.winPage = winPage;
+    this.soldierMsg = soldierMsg;
+    this.tyranidMsg = tyranidMsg;
+    this.soldierStats = soldierStats;
+    this.tyranidStats = tyranidStats;
   }
   // ---------------------Move method (WIP)
 
@@ -41,6 +49,7 @@ class Game {
   }
   //---------------------- display methods
   _displayFightEvent() {
+    // evento para empezar batalla.
     setTimeout(() => {
       this.fightEvent.classList.remove("hidden");
     }, 1000);
@@ -62,9 +71,31 @@ class Game {
   _showWinPage() {
     this.winPage.classList.remove("hidden");
   }
+  // --------------------- mesages on game
+  _soldierAttackInfoOut() {
+    this.soldierMsg.classList.add("hidden");
+  }
+  _soldierAttackInfo() {
+    this.soldierMsg.classList.remove("hidden");
+    this.soldierMsg.innerText = "hello";
+    setTimeout(() => {
+      this._soldierAttackInfoOut();
+    }, 2000);
+  }
+  _tyranidAttackInfoOut() {
+    this.tyranidMsg.classList.add("hidden");
+    this.attackButton.classList.remove("hidden");
+  }
+  _tyranidAttackInfo() {
+    this.tyranidMsg.classList.remove("hidden");
+    setTimeout(() => {
+      this._tyranidAttackInfoOut();
+    }, 2500);
+  }
   // ---------------------fight method
   soldierAttack() {
     this.tyranid.receiveDamage(this.soldier.strength);
+    this._soldierAttackInfo();
     this._comeback();
   }
   _comeback() {
@@ -75,10 +106,14 @@ class Game {
         this.drawCanvasFight = false;
         this._hideFightCanvas();
         this.drawCanvasMap = true;
+        this.tyranid.y = 7000;
         this._showMapCanvas();
-      }, 750);
+      }, 2000);
     } else {
-      setTimeout(() => this._tyranidAttack(), 2000);
+      this.attackButton.classList.add("hidden");
+      setTimeout(() => {
+        this._tyranidAttack(), this._tyranidAttackInfo();
+      }, 2000);
     }
   }
   _tyranidAttack() {

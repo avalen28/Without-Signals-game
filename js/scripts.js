@@ -9,6 +9,11 @@ window.onload = function () {
   const startFightButton = document.getElementById("start-fight");
   const attackButton = document.getElementById("attack-button");
   const winPage = document.getElementById("win-page");
+  const soldierMsg = document.getElementById("soldier-msg");
+  const tyranidMsg = document.getElementById("tyranid-msg");
+
+  const soldierStats = document.getElementById("soldier-stats");
+  const tyranidStats = document.getElementById("tyranid-stats");
 
   startButton.onclick = function () {
     startPage.style = "display: none";
@@ -21,7 +26,12 @@ window.onload = function () {
       fightEvent,
       startFightButton,
       attackButton,
-      winPage
+      winPage,
+      soldierMsg,
+      tyranidMsg,
+
+      soldierStats,
+      tyranidStats
     );
     game.start();
   };
