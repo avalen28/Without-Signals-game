@@ -71,6 +71,18 @@ class Game {
   _showWinPage() {
     this.winPage.classList.remove("hidden");
   }
+  _showSoldierStats() {
+    this.soldierStats.classList.remove("hidden");
+  }
+  _hideSoldierStats() {
+    this.soldierStats.classList.add("hidden");
+  }
+  _showTyranidStats() {
+    this.tyranidStats.classList.remove("hidden");
+  }
+  _hideTyranidStats() {
+    this.tyranidStats.classList.add("hidden");
+  }
   // --------------------- mesages on game
   _soldierAttackInfoOut() {
     this.soldierMsg.classList.add("hidden");
@@ -82,7 +94,7 @@ class Game {
     )}`;
     setTimeout(() => {
       this._soldierAttackInfoOut();
-    }, 2000);
+    }, 4000);
   }
   _tyranidAttackInfoOut() {
     this.tyranidMsg.classList.add("hidden");
@@ -95,15 +107,15 @@ class Game {
     )}`;
     setTimeout(() => {
       this._tyranidAttackInfoOut();
-    }, 2500);
+    }, 4000);
   }
   // ---------------------fight method
   soldierAttack() {
-    //this.tyranid.receiveDamage(this.soldier.strength);
     this._soldierAttackInfo();
     this._comeback();
   }
   _comeback() {
+    //tyranid attack
     // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
     if (this.tyranid.health <= 0) {
       console.log("grrrrr....");
@@ -113,12 +125,14 @@ class Game {
         this.drawCanvasMap = true;
         this.tyranid.y = 7000;
         this._showMapCanvas();
+        this._hideSoldierStats();
+        this._hideTyranidStats();
       }, 2000);
     } else {
       this.attackButton.classList.add("hidden");
       setTimeout(() => {
         this._tyranidAttackInfo();
-      }, 2000);
+      }, 4500); //0.5 seg. de margen entre ataque soldier & nid.
     }
   }
 
@@ -203,6 +217,7 @@ class Game {
         this._cleanCanvasFight();
         this._drawSoldierFight();
         this._drawTyranidFight();
+        //dibuja las vidas (permaAct)
       }
     });
   }
@@ -214,6 +229,8 @@ class Game {
       this.fightEvent.classList.add("hidden");
       this._hideMapCanvas();
       this._showFightCanvas();
+      this._showSoldierStats();
+      this._showTyranidStats();
       this.drawCanvasMap = false;
       this.drawCanvasFight = true;
     };

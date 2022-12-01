@@ -29,7 +29,6 @@ window.onload = function () {
       winPage,
       soldierMsg,
       tyranidMsg,
-
       soldierStats,
       tyranidStats
     );
