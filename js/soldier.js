@@ -11,13 +11,13 @@ class Soldier {
 
   receiveDamage(damage) {
     this.health = this.health - damage;
-    let soldierQuote = "";
+    let soldierStatus = "";
     if (this.health > 0) {
-      soldierQuote = `You receive ${damage} points of damage! Health remaining:${this.health}hp`;
+      soldierStatus = `You receive ${damage} points of damage! Health remaining:${this.health}hp`;
     } else {
-      soldierQuote = "You died in the name of the Emperor";
+      soldierStatus = "You died in the name of the Emperor";
     }
-    return soldierQuote;
+    return soldierStatus;
   }
   moveLeft() {
     if (this.movement) {

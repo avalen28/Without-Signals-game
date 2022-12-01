@@ -77,7 +77,9 @@ class Game {
   }
   _soldierAttackInfo() {
     this.soldierMsg.classList.remove("hidden");
-    this.soldierMsg.innerText = "hello";
+    this.soldierMsg.innerText = `${this.tyranid.receiveDamage(
+      this.soldier.strength
+    )}`;
     setTimeout(() => {
       this._soldierAttackInfoOut();
     }, 2000);
@@ -88,13 +90,16 @@ class Game {
   }
   _tyranidAttackInfo() {
     this.tyranidMsg.classList.remove("hidden");
+    this.tyranidMsg.innerText = `${this.soldier.receiveDamage(
+      this.tyranid.strength
+    )}`;
     setTimeout(() => {
       this._tyranidAttackInfoOut();
     }, 2500);
   }
   // ---------------------fight method
   soldierAttack() {
-    this.tyranid.receiveDamage(this.soldier.strength);
+    //this.tyranid.receiveDamage(this.soldier.strength);
     this._soldierAttackInfo();
     this._comeback();
   }
@@ -112,13 +117,11 @@ class Game {
     } else {
       this.attackButton.classList.add("hidden");
       setTimeout(() => {
-        this._tyranidAttack(), this._tyranidAttackInfo();
+        this._tyranidAttackInfo();
       }, 2000);
     }
   }
-  _tyranidAttack() {
-    this.soldier.receiveDamage(this.tyranid.strength);
-  }
+
   // ---------------------draw & clean methods
   _cleanCanvasMap() {
     this.ctxMap.clearRect(0, 0, 1000, 600);

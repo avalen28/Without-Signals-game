@@ -10,12 +10,12 @@ class Tyranid {
 
   receiveDamage(damage) {
     this.health = this.health - damage;
+    let tyranidQuote = "";
     if (this.health > 0) {
-      console.log(
-        `The Tyranid receives ${damage} points of damage!Health remaining:${this.health}hp`
-      );
+      tyranidQuote = `The Tyranid receives ${damage} points of damage!Health remaining:${this.health}hp`;
     } else {
-      console.log("The Tyranid dies in horrible screams!");
+      tyranidQuote = "The Tyranid dies in horrible screams!";
     }
+    return tyranidQuote;
   }
 }
