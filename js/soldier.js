@@ -10,7 +10,7 @@ class Soldier {
   }
   _generateDamage(initialStrengh) {
     let finalDmg = Math.floor(Math.random() * 10) * initialStrengh;
-    console.log(finalDmg);
+    console.log("soldier", finalDmg);
     return finalDmg;
   }
   receiveDamage(damage) {
@@ -19,7 +19,7 @@ class Soldier {
     if (this.health > 0) {
       soldierStatus = `Emperor... PROTECTS ME! You receive ${damage} points of damage!`;
     } else {
-      soldierStatus = "You died in the name of the Emperor...";
+      soldierStatus = "You die in the name of the Emperor...";
     }
     return soldierStatus;
   }

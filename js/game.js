@@ -111,7 +111,7 @@ class Game {
   _tyranidAttackInfo() {
     this.tyranidMsg.classList.remove("hidden");
     this.tyranidMsg.innerText = `${this.soldier.receiveDamage(
-      this.tyranid.strength
+      this.tyranid._generateDamage(this.tyranid.strength)
     )}`;
     setTimeout(() => {
       this._tyranidAttackInfoOut();
