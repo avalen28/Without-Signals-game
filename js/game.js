@@ -109,6 +109,12 @@ class Game {
       this._tyranidAttackInfoOut();
     }, 4000);
   }
+  _soldierStatsInfo() {
+    this.soldierStats.innerText = `${this.soldier.health}hp remaining`;
+  }
+  _tyranidStatsInfo() {
+    this.tyranidStats.innerText = `${this.tyranid.health}hp remaining`;
+  }
   // ---------------------fight method
   soldierAttack() {
     this._soldierAttackInfo();
@@ -217,7 +223,8 @@ class Game {
         this._cleanCanvasFight();
         this._drawSoldierFight();
         this._drawTyranidFight();
-        //dibuja las vidas (permaAct)
+        this._soldierStatsInfo();
+        this._tyranidStatsInfo();
       }
     });
   }
