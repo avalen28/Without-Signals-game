@@ -1,5 +1,6 @@
 class Game {
   constructor(
+    startPage, //
     canvasMap,
     canvasFight,
     contextMap,
@@ -13,8 +14,9 @@ class Game {
     tyranidMsg,
     soldierStats,
     tyranidStats,
-    returnStartButton
+    returnStartButtonWin //
   ) {
+    this.startPage = startPage;
     this.canvasMap = canvasMap;
     this.drawCanvasMap = true;
     this.canvasFight = canvasFight;
@@ -34,7 +36,7 @@ class Game {
     this.tyranidMsg = tyranidMsg;
     this.soldierStats = soldierStats;
     this.tyranidStats = tyranidStats;
-    this.returnStartButton = returnStartButton;
+    this.returnStartButtonWin = returnStartButtonWin; //
   }
   // ---------------------Move method (WIP)
 
@@ -172,6 +174,7 @@ class Game {
       this.soldier.width,
       this.soldier.height
     );
+    console.log(this.soldier.x);
   }
   _drawTyranid() {
     this.ctxMap.fillStyle = "green";
@@ -231,11 +234,11 @@ class Game {
       setTimeout(() => {
         this._hideSoldierStats();
         this._hideTyranidStats();
-      }, 4000);
+      }, 6000);
       setTimeout(() => {
         this._hideFightCanvas();
         this._showLosePage();
-      }, 4050);
+      }, 6050);
     }
   }
   //---------------------permaworking
@@ -276,5 +279,13 @@ class Game {
     this.attackButton.onclick = () => {
       this.soldierAttack();
     };
+    //   this.returnStartButtonWin.onclick = () => {
+    //     console.log("holigame");
+    //     this.startPage.style = "display: flex";
+    //     //   this.losePage.classList.add("hidden");
+    //     this.winPage.classList.add("hidden");
+    //     this.soldier.x = 0;
+    //     this.soldier.movement = true;
+    //   };
   }
 }

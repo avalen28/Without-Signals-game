@@ -1,7 +1,7 @@
 class Soldier {
   constructor() {
     this.health = 100;
-    this.strength = 5;
+    this.strength = 500;
     this.x = 0;
     this.y = 400;
     this.width = 100;

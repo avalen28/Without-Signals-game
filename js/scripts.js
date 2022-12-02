@@ -12,15 +12,18 @@ window.onload = function () {
   const losePage = document.getElementById("lose-page");
   const soldierMsg = document.getElementById("soldier-msg");
   const tyranidMsg = document.getElementById("tyranid-msg");
-  const returnStartButton = document.getElementById("return-start-button");
-
   const soldierStats = document.getElementById("soldier-stats");
   const tyranidStats = document.getElementById("tyranid-stats");
+  //
+  const returnStartButtonWin = document.getElementById(
+    "return-start-button-win"
+  );
 
   startButton.onclick = function () {
     startPage.style = "display: none";
     canvasMap.classList.remove("hidden");
     const game = new Game(
+      startPage, //
       canvasMap,
       canvasFight,
       ctxMap,
@@ -34,9 +37,15 @@ window.onload = function () {
       tyranidMsg,
       soldierStats,
       tyranidStats,
-      returnStartButton
+      returnStartButtonWin //
     );
     console.log("newgame");
     game.start();
+  };
+  returnStartButtonWin.onclick = function () {
+    //   startPage.style = "display: flex";
+    //   winPage.classList.add("hidden");
+    console.log("holi");
+    window.location.reload();
   };
 };
