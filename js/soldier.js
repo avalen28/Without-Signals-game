@@ -1,21 +1,25 @@
 class Soldier {
   constructor() {
     this.health = 100;
-    this.strength = 30;
+    this.strength = 5;
     this.x = 0;
     this.y = 400;
     this.width = 100;
     this.height = 100;
     this.movement = true;
   }
-
+  _generateDamage(initialStrengh) {
+    let finalDmg = Math.floor(Math.random() * 10) * initialStrengh;
+    console.log(finalDmg);
+    return finalDmg;
+  }
   receiveDamage(damage) {
     this.health = this.health - damage;
     let soldierStatus = "";
     if (this.health > 0) {
-      soldierStatus = `You receive ${damage} points of damage! Health remaining:${this.health}hp`;
+      soldierStatus = `Emperor... PROTECTS ME! You receive ${damage} points of damage!`;
     } else {
-      soldierStatus = "You died in the name of the Emperor";
+      soldierStatus = "You died in the name of the Emperor...";
     }
     return soldierStatus;
   }

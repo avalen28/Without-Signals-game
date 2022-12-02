@@ -8,10 +8,12 @@ class Game {
     startFightButton,
     attackButton,
     winPage,
+    losePage,
     soldierMsg,
     tyranidMsg,
     soldierStats,
-    tyranidStats
+    tyranidStats,
+    returnStartButton
   ) {
     this.canvasMap = canvasMap;
     this.drawCanvasMap = true;
@@ -26,10 +28,12 @@ class Game {
     this.startFightButton = startFightButton;
     this.attackButton = attackButton;
     this.winPage = winPage;
+    this.losePage = losePage;
     this.soldierMsg = soldierMsg;
     this.tyranidMsg = tyranidMsg;
     this.soldierStats = soldierStats;
     this.tyranidStats = tyranidStats;
+    this.returnStartButton = returnStartButton;
   }
   // ---------------------Move method (WIP)
 
@@ -71,6 +75,10 @@ class Game {
   _showWinPage() {
     this.winPage.classList.remove("hidden");
   }
+  _showLosePage() {
+    this.losePage.classList.remove("hidden");
+  }
+
   _showSoldierStats() {
     this.soldierStats.classList.remove("hidden");
   }
@@ -90,11 +98,11 @@ class Game {
   _soldierAttackInfo() {
     this.soldierMsg.classList.remove("hidden");
     this.soldierMsg.innerText = `${this.tyranid.receiveDamage(
-      this.soldier.strength
+      this.soldier._generateDamage(this.soldier.strength)
     )}`;
     setTimeout(() => {
       this._soldierAttackInfoOut();
-    }, 4000);
+    }, 6000); // tiempo que muestra el mensaje soldier.
   }
   _tyranidAttackInfoOut() {
     this.tyranidMsg.classList.add("hidden");
@@ -107,14 +115,23 @@ class Game {
     )}`;
     setTimeout(() => {
       this._tyranidAttackInfoOut();
-    }, 4000);
+    }, 6000); // tiempo que muestra el mensaje tyranido
   }
   _soldierStatsInfo() {
-    this.soldierStats.innerText = `${this.soldier.health}hp remaining`;
+    if (this.soldier.health > 0) {
+      this.soldierStats.innerText = `${this.soldier.health}hp remaining`;
+    } else {
+      this.soldierStats.innerText = `0 hp remaining`;
+    }
   }
   _tyranidStatsInfo() {
-    this.tyranidStats.innerText = `${this.tyranid.health}hp remaining`;
+    if (this.tyranid.health > 0) {
+      this.tyranidStats.innerText = `${this.tyranid.health}hp remaining`;
+    } else {
+      this.tyranidStats.innerText = "0 hp remaining";
+    }
   }
+
   // ---------------------fight method
   soldierAttack() {
     this._soldierAttackInfo();
@@ -124,7 +141,7 @@ class Game {
     //tyranid attack
     // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
     if (this.tyranid.health <= 0) {
-      console.log("grrrrr....");
+      this.attackButton.classList.add("hidden");
       setTimeout(() => {
         this.drawCanvasFight = false;
         this._hideFightCanvas();
@@ -133,12 +150,12 @@ class Game {
         this._showMapCanvas();
         this._hideSoldierStats();
         this._hideTyranidStats();
-      }, 2000);
+      }, 6000);
     } else {
       this.attackButton.classList.add("hidden");
       setTimeout(() => {
         this._tyranidAttackInfo();
-      }, 4500); //0.5 seg. de margen entre ataque soldier & nid.
+      }, 6500); //0.5 seg. de margen entre ataque soldier & nid.
     }
   }
 
@@ -207,6 +224,18 @@ class Game {
       this._showWinPage();
     }
   }
+  _soldierDies() {
+    if (this.soldier.health <= 0) {
+      setTimeout(() => {
+        this._hideSoldierStats();
+        this._hideTyranidStats();
+      }, 4000);
+      setTimeout(() => {
+        this._hideFightCanvas();
+        this._showLosePage();
+      }, 4050);
+    }
+  }
   //---------------------permaworking
   _update() {
     window.requestAnimationFrame(() => {
@@ -225,6 +254,7 @@ class Game {
         this._drawTyranidFight();
         this._soldierStatsInfo();
         this._tyranidStatsInfo();
+        this._soldierDies();
       }
     });
   }

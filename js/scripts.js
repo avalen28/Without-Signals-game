@@ -9,8 +9,10 @@ window.onload = function () {
   const startFightButton = document.getElementById("start-fight");
   const attackButton = document.getElementById("attack-button");
   const winPage = document.getElementById("win-page");
+  const losePage = document.getElementById("lose-page");
   const soldierMsg = document.getElementById("soldier-msg");
   const tyranidMsg = document.getElementById("tyranid-msg");
+  const returnStartButton = document.getElementById("return-start-button");
 
   const soldierStats = document.getElementById("soldier-stats");
   const tyranidStats = document.getElementById("tyranid-stats");
@@ -27,11 +29,14 @@ window.onload = function () {
       startFightButton,
       attackButton,
       winPage,
+      losePage,
       soldierMsg,
       tyranidMsg,
       soldierStats,
-      tyranidStats
+      tyranidStats,
+      returnStartButton
     );
+    console.log("newgame");
     game.start();
   };
 };
