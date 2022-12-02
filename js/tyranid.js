@@ -2,7 +2,6 @@ class Tyranid {
   constructor() {
     this.health = 100;
     this.strength = 5;
-    this.x = 400;
     this.y = -100;
     this.width = 100;
     this.height = 100;

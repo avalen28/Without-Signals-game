@@ -23,6 +23,7 @@ class Game {
     this.ctxFight = contextFight;
     this.soldier = new Soldier();
     this.tyranid = new Tyranid();
+    this.trapPosition = Math.floor(Math.random() * (1000 - this.soldier.width));
     this.fightEvent = fightEvent;
     this.fightEventIsActive = false;
     this.startFightButton = startFightButton;
@@ -175,7 +176,7 @@ class Game {
   _drawTyranid() {
     this.ctxMap.fillStyle = "green";
     this.ctxMap.fillRect(
-      this.tyranid.x,
+      this.trapPosition,
       this.tyranid.y,
       this.tyranid.width,
       this.tyranid.height
@@ -199,9 +200,10 @@ class Game {
       this.tyranid.y = this.tyranid.y + 10;
     }
   }
+
   _checkCollisionTrap() {
     //trap-libertate-movement.
-    if (this.soldier.x > 400 && this.tyranid.health > 0) {
+    if (this.soldier.x >= this.trapPosition && this.tyranid.health > 0) {
       this.soldier.movement = false;
       this._tyranidMoveDown();
     } else {
