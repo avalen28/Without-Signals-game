@@ -58,48 +58,48 @@ class Game {
   _displayFightEvent() {
     // evento para empezar batalla.
     setTimeout(() => {
-      this.fightEvent.classList.remove("hidden");
+      this.fightEvent.style = "display: flex";
     }, 1000);
   }
   _hideMapCanvas() {
-    this.canvasMap.classList.add("hidden");
+    this.canvasMap.style = "display: none";
   }
   _showMapCanvas() {
-    this.canvasMap.classList.remove("hidden");
+    this.canvasMap.style = "display: flex";
   }
   _showFightCanvas() {
-    this.canvasFight.classList.remove("hidden");
-    this.attackButton.classList.remove("hidden");
+    this.canvasFight.style = "display: flex";
+    this.attackButton.style = "display: flex";
   }
   _hideFightCanvas() {
-    this.canvasFight.classList.add("hidden");
-    this.attackButton.classList.add("hidden");
+    this.canvasFight.style = "display: none";
+    this.attackButton.style = "display: none";
   }
   _showWinPage() {
-    this.winPage.classList.remove("hidden");
+    this.winPage.style = "display: flex";
   }
   _showLosePage() {
-    this.losePage.classList.remove("hidden");
+    this.losePage.style = "display: flex";
   }
 
   _showSoldierStats() {
-    this.soldierStats.classList.remove("hidden");
+    this.soldierStats.style = "display: flex";
   }
   _hideSoldierStats() {
-    this.soldierStats.classList.add("hidden");
+    this.soldierStats.style = "display: none";
   }
   _showTyranidStats() {
-    this.tyranidStats.classList.remove("hidden");
+    this.tyranidStats.style = "display: flex";
   }
   _hideTyranidStats() {
-    this.tyranidStats.classList.add("hidden");
+    this.tyranidStats.style = "display: none";
   }
   // --------------------- mesages on game
   _soldierAttackInfoOut() {
-    this.soldierMsg.classList.add("hidden");
+    this.soldierMsg.style = "display: none";
   }
   _soldierAttackInfo() {
-    this.soldierMsg.classList.remove("hidden");
+    this.soldierMsg.style = "display: flex";
     this.soldierMsg.innerText = `${this.tyranid.receiveDamage(
       this.soldier._generateDamage(this.soldier.strength)
     )}`;
@@ -108,11 +108,11 @@ class Game {
     }, 6000); // tiempo que muestra el mensaje soldier.
   }
   _tyranidAttackInfoOut() {
-    this.tyranidMsg.classList.add("hidden");
-    this.attackButton.classList.remove("hidden");
+    this.tyranidMsg.style = "display: none";
+    this.attackButton.style = "display: flex";
   }
   _tyranidAttackInfo() {
-    this.tyranidMsg.classList.remove("hidden");
+    this.tyranidMsg.style = "display: flex";
     this.tyranidMsg.innerText = `${this.soldier.receiveDamage(
       this.tyranid._generateDamage(this.tyranid.strength)
     )}`;
@@ -144,7 +144,7 @@ class Game {
     //tyranid attack
     // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
     if (this.tyranid.health <= 0) {
-      this.attackButton.classList.add("hidden");
+      this.attackButton.style = "display: none";
       setTimeout(() => {
         this.drawCanvasFight = false;
         this._hideFightCanvas();
@@ -155,7 +155,7 @@ class Game {
         this._hideTyranidStats();
       }, 6000);
     } else {
-      this.attackButton.classList.add("hidden");
+      this.attackButton.style = "display: none";
       setTimeout(() => {
         this._tyranidAttackInfo();
       }, 6500); //0.5 seg. de margen entre ataque soldier & nid.
@@ -268,7 +268,7 @@ class Game {
     this._assignControls();
     this._update();
     this.startFightButton.onclick = () => {
-      this.fightEvent.classList.add("hidden");
+      this.fightEvent.style = "display: none";
       this._hideMapCanvas();
       this._showFightCanvas();
       this._showSoldierStats();

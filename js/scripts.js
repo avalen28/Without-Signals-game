@@ -15,11 +15,16 @@ window.onload = function () {
   const soldierStats = document.getElementById("soldier-stats");
   const tyranidStats = document.getElementById("tyranid-stats");
   //
-  const returnStartButtonWin = document.getElementById("return-start-button");
+  const returnStartButtonWin = document.getElementById(
+    "return-start-button-win"
+  );
+  const returnStartButtonLose = document.getElementById(
+    "return-start-button-lose"
+  );
 
   startButton.onclick = function () {
     startPage.style = "display: none";
-    canvasMap.classList.remove("hidden");
+    canvasMap.style = "display: flex";
     const game = new Game(
       startPage, //
       canvasMap,
@@ -41,6 +46,9 @@ window.onload = function () {
     game.start();
   };
   returnStartButtonWin.onclick = function () {
+    window.location.reload();
+  };
+  returnStartButtonLose.onclick = function () {
     window.location.reload();
   };
 };

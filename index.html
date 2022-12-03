@@ -10,51 +10,53 @@
   <body>
     <!----------------- START PAGE ----------->
     <div id="start-page">
-      <main>
-        <h1>Title of the game</h1>
-        <p>Instructions / Description</p>
-        <button id="start">START</button>
-      </main>
+      <h1>Title of the game</h1>
+      <p>Instructions / Description</p>
+      <button id="start">START</button>
     </div>
-    <!----------------- CANVAS ----------->
-
-    <canvas id="canvas-map" width="1000" height="600" class="hidden"></canvas>
-    <canvas id="canvas-fight" width="1000" height="600" class="hidden"></canvas>
+    <!----------------- MAP ----------->
+    <div class="screen-outputs">
+      <canvas id="canvas-map" width="1000" height="600" class="hidden"></canvas>
+      <div id="fight-event" class="hidden">
+        <h3>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum
+          ea quod ab alias accusantium et exercitationem aperiam distinctio
+          itaque culpa sapiente, libero pariatur eius! Obcaecati asperiores vero
+          eum minima.
+        </h3>
+        <button id="start-fight">Start Fight!</button>
+      </div>
+    </div>
+    <!----------------- FIGHT ----------->
+    <div class="screen-outputs">
+      <canvas
+        id="canvas-fight"
+        width="1000"
+        height="600"
+        class="hidden"
+      ></canvas>
+      <div id="soldier-stats" class="hidden">Soldier 100HP</div>
+      <div id="tyranid-stats" class="hidden">Tyranid 100HP</div>
+      <button id="attack-button" class="hidden">Attack!</button>
+      <div id="soldier-msg" class="hidden">
+        <h1>Soldier attack. Shows damage done and tyranid hp</h1>
+      </div>
+      <div id="tyranid-msg" class="hidden">
+        <h1>Tyranid attack. Shows damage done and soldier hp</h1>
+      </div>
+    </div>
 
     <!----------------- LOSE / WIN PAGE ----------->
 
     <div id="lose-page" class="hidden">
-      <main>
-        <h1>YOU DIE</h1>
-        <button id="return-start-button">Return to Start Menu</button>
-      </main>
+      <h1>YOU DIE</h1>
+      <button id="return-start-button-lose">Return to Start Menu</button>
     </div>
 
     <div id="win-page" class="hidden">
-      <main>
-        <h1>YOU SURVIVE</h1>
-        <button id="return-start-button">Return to Start Menu</button>
-      </main>
+      <h1>YOU SURVIVE</h1>
+      <button id="return-start-button-win">Return to Start Menu</button>
     </div>
-    <!----------------- FIGHT EVENT- iniciate ----------->
-    <div id="fight-event" class="hidden">
-      <h1>xxxx</h1>
-      <button id="start-fight">Start Fight!</button>
-    </div>
-
-    <!-----------------FIGHT EVENT - attack&mesages-->
-
-    <button id="attack-button" class="hidden">Attack!</button>
-
-    <div id="soldier-msg" class="hidden">
-      <h1>Soldier attack. Shows damage done and tyranid hp</h1>
-    </div>
-    <div id="tyranid-msg" class="hidden">
-      <h1>Tyranid attack. Shows damage done and soldier hp</h1>
-    </div>
-
-    <div id="soldier-stats" class="hidden">Soldier 100HP</div>
-    <div id="tyranid-stats" class="hidden">Tyranid 100HP</div>
     <!----------------- SCRIPTS ----------->
     <script src="js/soldier.js"></script>
     <script src="js/tyranid.js"></script>
