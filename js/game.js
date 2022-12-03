@@ -190,11 +190,11 @@ class Game {
   }
   _drawSoldierFight() {
     this.ctxFight.fillStyle = "red";
-    this.ctxFight.fillRect(100, 100, 75, 150);
+    this.ctxFight.fillRect(100, 100, 150, 350);
   }
   _drawTyranidFight() {
     this.ctxFight.fillStyle = "green";
-    this.ctxFight.fillRect(600, 100, 75, 150);
+    this.ctxFight.fillRect(750, 100, 150, 350);
   }
 
   // ---------------------Colisions&checkpoints
@@ -279,13 +279,5 @@ class Game {
     this.attackButton.onclick = () => {
       this.soldierAttack();
     };
-    //   this.returnStartButtonWin.onclick = () => {
-    //     console.log("holigame");
-    //     this.startPage.style = "display: flex";
-    //     //   this.losePage.classList.add("hidden");
-    //     this.winPage.classList.add("hidden");
-    //     this.soldier.x = 0;
-    //     this.soldier.movement = true;
-    //   };
   }
 }

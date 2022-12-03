@@ -15,9 +15,7 @@ window.onload = function () {
   const soldierStats = document.getElementById("soldier-stats");
   const tyranidStats = document.getElementById("tyranid-stats");
   //
-  const returnStartButtonWin = document.getElementById(
-    "return-start-button-win"
-  );
+  const returnStartButtonWin = document.getElementById("return-start-button");
 
   startButton.onclick = function () {
     startPage.style = "display: none";
@@ -43,9 +41,6 @@ window.onload = function () {
     game.start();
   };
   returnStartButtonWin.onclick = function () {
-    //   startPage.style = "display: flex";
-    //   winPage.classList.add("hidden");
-    console.log("holi");
     window.location.reload();
   };
 };
