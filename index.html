@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Project</title>
+    <title>Without Signals - The game</title>
   </head>
   <body>
     <!----------------- START PAGE ----------->
@@ -17,13 +18,8 @@
     <!----------------- MAP ----------->
     <div class="screen-outputs">
       <canvas id="canvas-map" width="1000" height="600" class="hidden"></canvas>
-      <div id="fight-event" class="hidden">
-        <h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum
-          ea quod ab alias accusantium et exercitationem aperiam distinctio
-          itaque culpa sapiente, libero pariatur eius! Obcaecati asperiores vero
-          eum minima.
-        </h3>
+      <div id="fight-event" class="hidden fight-event">
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
         <button id="start-fight">Start Fight!</button>
       </div>
     </div>
@@ -38,10 +34,10 @@
       <div id="soldier-stats" class="hidden">Soldier 100HP</div>
       <div id="tyranid-stats" class="hidden">Tyranid 100HP</div>
       <button id="attack-button" class="hidden">Attack!</button>
-      <div id="soldier-msg" class="hidden">
+      <div id="soldier-msg" class="hidden fight-event">
         <h1>Soldier attack. Shows damage done and tyranid hp</h1>
       </div>
-      <div id="tyranid-msg" class="hidden">
+      <div id="tyranid-msg" class="hidden fight-event">
         <h1>Tyranid attack. Shows damage done and soldier hp</h1>
       </div>
     </div>

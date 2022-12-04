@@ -191,7 +191,7 @@ class Game {
   }
   _drawSoldierFight() {
     this.ctxFight.fillStyle = "red";
-    this.ctxFight.fillRect(100, 100, 150, 350);
+    this.ctxFight.drawImage(soldierFightImg, 50, 20, 300, 600);
   }
   _drawTyranidFight() {
     this.ctxFight.fillStyle = "green";

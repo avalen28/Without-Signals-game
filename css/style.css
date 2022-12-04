@@ -1,11 +1,17 @@
+@import url("https://fonts.cdnfonts.com/css/press-start-2p");
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Press Start 2P", sans-serif;
 }
 
 /* Basic styles, change according to your style */
-
-#start-page{
+button {
+  padding: 10px;
+  width: fit-content;
+}
+#start-page {
   height: 600px;
   width: 1000px;
   display: flex;
@@ -13,40 +19,50 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  margin: 0 auto;
-  border: 1px solid black;
-  margin-top: 30px;
+  background-color: aquamarine;
 }
 /* ----------------- canvas styles ----------*/
-.screen-outputs{
-  position:relative;
-  margin-left: 30px;
+.screen-outputs {
+  position: relative;
 }
 #canvas-map {
   border: 1px solid black;
   background-color: lightblue;
   background-image: url(../images/pasillo.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-#fight-event {
-  background-color: brown;
-  width: 1000px;
-  height: 80px;
-  border: 1px solid black;
+.fight-event {
+  background-color: black;
+  color: azure;
+  width: 990px;
+  height: 100px;
+  border: 5px solid azure;
+  border-radius: 10px;
   position: absolute;
   bottom: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#start-fight {
+  margin-top: 10px;
 }
 #canvas-fight {
   border: 1px solid black;
   background-color: rgb(230, 225, 173);
+  background-image: url(../images/fight1.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #soldier-stats {
   background-color: bisque;
   width: 200px;
   height: 35px;
-  font-size: 27px;
+  font-size: 12px;
   position: absolute;
   text-align: center;
   top: 100px;
@@ -68,65 +84,26 @@
   font-size: 30px;
   position: absolute;
   bottom: 20px;
-    left: 400px;
+  left: 400px;
 }
-#soldier-msg {
+
+#lose-page {
+  height: 600px;
   width: 1000px;
-  height: 50px;
-  align-self: center;
   border: 1px solid black;
-  position: absolute;
-  text-align: center;
-  padding-top: 10px;
-  justify-content: space-evenly;
-  font-size: 30px;
-  bottom: 5px;
-}
-#tyranid-msg {
-  width: 1000px;
-  height: 50px;
-  align-self: center;
-  border: 1px solid black;
-  position: absolute;
-  text-align: center;
-  padding-top: 10px;
-  justify-content: space-evenly;
-  font-size: 30px;
-  bottom: 5px;
-}
-
-
-
-#lose-page{
-    height: 600px;
-      width: 1000px;
-  border: 1px solid black;
-    background-color: rgb(212, 127, 108);
-    margin: 0 auto;
-    margin-left: 91.5px;
-    margin-right: 91.52px;
-    margin-top: 30px;
-    position: relative;
+  background-color: rgb(212, 127, 108);
+  position: relative;
 }
 #win-page {
-    height: 600px;
-      width: 1000px;
+  height: 600px;
+  width: 1000px;
   border: 1px solid black;
   background-color: rgb(172, 108, 212);
-  margin: 0 auto;
-  margin-left: 91.5px;
-  margin-right: 91.52px;
-  margin-top: 30px;
   position: relative;
   align-items: center;
 }
 
-
 /* ----------------- events styles ----------*/
-
-
-
-
 
 /* Auxiliar classes */
 

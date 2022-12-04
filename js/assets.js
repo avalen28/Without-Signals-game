@@ -6,3 +6,6 @@ tyranidImg.src = "../images/nid2.png";
 
 const emperorSound = new Audio();
 emperorSound.src = "../sounds/FOR THE EMPEROR.mp3";
+
+const soldierFightImg = new Image();
+soldierFightImg.src = "../images/soldierRight.png";
