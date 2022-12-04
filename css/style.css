@@ -61,22 +61,24 @@ button {
 #soldier-stats {
   background-color: bisque;
   width: 200px;
-  height: 35px;
-  font-size: 12px;
+  height: 45px;
+  font-size: 14px;
   position: absolute;
-  text-align: center;
   top: 100px;
   left: 270px;
+  padding-top: 10px;
+  text-align: center;
 }
 #tyranid-stats {
   background-color: rgb(196, 255, 213);
   width: 200px;
-  height: 35px;
-  font-size: 27px;
+  height: 45px;
+  font-size: 14px;
   position: absolute;
-  text-align: center;
   bottom: 150px;
-  right: 405px;
+  left: 465px;
+  padding-top: 10px;
+  text-align: center;
 }
 #attack-button {
   width: 200px;

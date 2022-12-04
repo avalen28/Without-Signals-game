@@ -189,13 +189,13 @@ class Game {
   _cleanCanvasFight() {
     this.ctxFight.clearRect(0, 0, 1000, 600);
   }
-  _drawSoldierFight() {
-    this.ctxFight.fillStyle = "red";
-    this.ctxFight.drawImage(soldierFightImg, 50, 20, 300, 600);
-  }
   _drawTyranidFight() {
     this.ctxFight.fillStyle = "green";
-    this.ctxFight.fillRect(750, 100, 150, 350);
+    this.ctxFight.drawImage(tyranidFightImg, 300, -150, 800, 800);
+  }
+  _drawSoldierFight() {
+    this.ctxFight.fillStyle = "red";
+    this.ctxFight.drawImage(soldierFightImg, 50, 20, 350, 600);
   }
 
   // ---------------------Colisions&checkpoints
@@ -257,8 +257,8 @@ class Game {
         // todas las funciones que se deben estar constantemente ejecutando
       } else if (this.drawCanvasFight) {
         this._cleanCanvasFight();
-        this._drawSoldierFight();
         this._drawTyranidFight();
+        this._drawSoldierFight();
         this._soldierStatsInfo();
         this._tyranidStatsInfo();
         this._soldierDies();
