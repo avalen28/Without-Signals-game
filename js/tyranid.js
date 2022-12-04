@@ -2,9 +2,9 @@ class Tyranid {
   constructor() {
     this.health = 100;
     this.strength = 5;
-    this.y = -100;
-    this.width = 100;
-    this.height = 100;
+    this.y = -200;
+    this.width = 250;
+    this.height = 200;
   }
   _generateDamage(initialStrengh) {
     let finalDmg = Math.floor(Math.random() * 10) * initialStrengh;

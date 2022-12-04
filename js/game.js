@@ -168,17 +168,18 @@ class Game {
   }
   _drawSoldier() {
     this.ctxMap.fillStyle = "red";
-    this.ctxMap.fillRect(
+    this.ctxMap.drawImage(
+      soldierImg,
       this.soldier.x,
       this.soldier.y,
       this.soldier.width,
       this.soldier.height
     );
-    console.log(this.soldier.x);
   }
   _drawTyranid() {
     this.ctxMap.fillStyle = "green";
-    this.ctxMap.fillRect(
+    this.ctxMap.drawImage(
+      tyranidImg,
       this.trapPosition,
       this.tyranid.y,
       this.tyranid.width,
@@ -218,6 +219,7 @@ class Game {
       this.tyranid.y + this.tyranid.height === this.soldier.y &&
       !this.fightEventIsActive
     ) {
+      emperorSound.play();
       this.fightEventIsActive = true;
       this._displayFightEvent();
     }

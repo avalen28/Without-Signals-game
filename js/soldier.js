@@ -3,9 +3,9 @@ class Soldier {
     this.health = 100;
     this.strength = 5;
     this.x = 0;
-    this.y = 400;
-    this.width = 100;
-    this.height = 100;
+    this.y = 300;
+    this.width = 200;
+    this.height = 300;
     this.movement = true;
   }
   _generateDamage(initialStrengh) {
