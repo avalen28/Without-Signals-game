@@ -219,7 +219,7 @@ class Game {
       this.tyranid.y + this.tyranid.height === this.soldier.y &&
       !this.fightEventIsActive
     ) {
-      emperorSound.play();
+      //
       this.fightEventIsActive = true;
       this._displayFightEvent();
     }
@@ -277,6 +277,7 @@ class Game {
       this._showTyranidStats();
       this.drawCanvasMap = false;
       this.drawCanvasFight = true;
+      emperorSound.play();
     };
     this.attackButton.onclick = () => {
       this.soldierAttack();

@@ -19,7 +19,7 @@ class Soldier {
     if (this.health > 0) {
       soldierStatus = `Emperor... PROTECTS ME! You receive ${damage} points of damage!`;
     } else {
-      soldierStatus = "You die in the name of the Emperor...";
+      soldierStatus = `You receive ${damage} points of damage and die in the name of the Emperor...`;
     }
     return soldierStatus;
   }

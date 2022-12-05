@@ -11,29 +11,34 @@ button {
   padding: 10px;
   width: fit-content;
 }
+
+/* ----------------- start styles ----------*/
 #start-page {
   height: 600px;
   width: 1000px;
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+  background-color: rgb(0, 0, 0);
 }
 .game-tittle {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 1000px;
+  width: 990px;
   height: 75px;
-  background-color: #5a5b61;
+  background-color: black;
+  background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
+  text-shadow: 0 0 5px #c8c8c8;
+  border: 5px solid whitesmoke;
+  color: white;
+  border-radius: 15px;
+  font-size: 40px;
 }
 .block1 {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
-.intro {
+.green-screen {
   height: 400px;
   width: fit-content;
   padding-left: 20px;
@@ -47,6 +52,25 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+.block2 {
+  display: flex;
+  align-items: center;
+}
+.controls {
+  background-color: black;
+  color: azure;
+  height: 100px;
+  border: 5px solid azure;
+  border-radius: 10px;
+  bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#start {
+  height: 100px;
+  width: 200px;
+  height: 74px;
 }
 h3 {
   width: fit-content;
@@ -62,6 +86,8 @@ h3 {
   background-repeat: no-repeat;
   width: 700px;
   height: 400px;
+  border: 5px solid azure;
+  border-radius: 10px;
 }
 /* ----------------- canvas styles ----------*/
 .screen-outputs {
