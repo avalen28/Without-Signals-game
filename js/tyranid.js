@@ -8,7 +8,7 @@ class Tyranid {
   }
   _generateDamage(initialStrengh) {
     let finalDmg = Math.floor(Math.random() * 10) * initialStrengh;
-    console.log("nid", finalDmg);
+
     return finalDmg;
   }
   receiveDamage(damage) {

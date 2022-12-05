@@ -8,6 +8,7 @@ window.onload = function () {
   const fightEvent = document.getElementById("fight-event");
   const startFightButton = document.getElementById("start-fight");
   const attackButton = document.getElementById("attack-button");
+  const healthButton = document.getElementById("health-button");
   const winPage = document.getElementById("win-page");
   const losePage = document.getElementById("lose-page");
   const soldierMsg = document.getElementById("soldier-msg");
@@ -26,7 +27,6 @@ window.onload = function () {
     startPage.style = "display: none";
     canvasMap.style = "display: flex";
     const game = new Game(
-      startPage, //
       canvasMap,
       canvasFight,
       ctxMap,
@@ -34,6 +34,7 @@ window.onload = function () {
       fightEvent,
       startFightButton,
       attackButton,
+      healthButton,
       winPage,
       losePage,
       soldierMsg,
@@ -42,7 +43,6 @@ window.onload = function () {
       tyranidStats,
       returnStartButtonWin //
     );
-    console.log("newgame");
     game.start();
   };
   returnStartButtonWin.onclick = function () {

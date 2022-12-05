@@ -1,6 +1,6 @@
 class Game {
   constructor(
-    startPage, //
+    //
     canvasMap,
     canvasFight,
     contextMap,
@@ -8,6 +8,7 @@ class Game {
     fightEvent,
     startFightButton,
     attackButton,
+    healthButton,
     winPage,
     losePage,
     soldierMsg,
@@ -16,7 +17,6 @@ class Game {
     tyranidStats,
     returnStartButtonWin //
   ) {
-    this.startPage = startPage;
     this.canvasMap = canvasMap;
     this.drawCanvasMap = true;
     this.canvasFight = canvasFight;
@@ -30,6 +30,7 @@ class Game {
     this.fightEventIsActive = false;
     this.startFightButton = startFightButton;
     this.attackButton = attackButton;
+    this.healthButton = healthButton;
     this.winPage = winPage;
     this.losePage = losePage;
     this.soldierMsg = soldierMsg;
@@ -70,10 +71,12 @@ class Game {
   _showFightCanvas() {
     this.canvasFight.style = "display: flex";
     this.attackButton.style = "display: flex";
+    this.healthButton.style = "display: flex";
   }
   _hideFightCanvas() {
     this.canvasFight.style = "display: none";
     this.attackButton.style = "display: none";
+    this.healthButton.style = "display: none";
   }
   _showWinPage() {
     this.winPage.style = "display: flex";
@@ -81,7 +84,6 @@ class Game {
   _showLosePage() {
     this.losePage.style = "display: flex";
   }
-
   _showSoldierStats() {
     this.soldierStats.style = "display: flex";
   }
@@ -98,27 +100,53 @@ class Game {
   _soldierAttackInfoOut() {
     this.soldierMsg.style = "display: none";
   }
+  //includes soldier dmg and Quotes
   _soldierAttackInfo() {
     this.soldierMsg.style = "display: flex";
-    this.soldierMsg.innerText = `${this.tyranid.receiveDamage(
+    this.soldierMsg.innerText = this.tyranid.receiveDamage(
       this.soldier._generateDamage(this.soldier.strength)
-    )}`;
+    );
     setTimeout(() => {
       this._soldierAttackInfoOut();
     }, 6000); // tiempo que muestra el mensaje soldier.
+  }
+  _soldierHealthInfoOut() {
+    this.soldierMsg.style = "display: none";
+  }
+  //includes soldier health and Quotes
+  _soldierHealthInfo() {
+    this.soldierMsg.style = "display: flex";
+    this.soldierMsg.innerText = `${this.soldier.healthHp()}`;
+    setTimeout(() => {
+      this._soldierHealthInfoOut();
+    }, 6000);
   }
   _tyranidAttackInfoOut() {
     this.tyranidMsg.style = "display: none";
     this.attackButton.style = "display: flex";
   }
+  _tyranidHealthInfoOut() {
+    this.tyranidMsg.style = "display: none";
+    this.attackButton.style = "display: flex";
+  }
+  //includes tyranid dmg and Quotes
   _tyranidAttackInfo() {
     this.tyranidMsg.style = "display: flex";
-    this.tyranidMsg.innerText = `${this.soldier.receiveDamage(
+    this.tyranidMsg.innerText = this.soldier.receiveDamage(
       this.tyranid._generateDamage(this.tyranid.strength)
-    )}`;
+    );
     setTimeout(() => {
       this._tyranidAttackInfoOut();
     }, 6000); // tiempo que muestra el mensaje tyranido
+  }
+  _tyranidHealthInfo() {
+    this.tyranidMsg.style = "display: flex";
+    let recover = 20;
+    this.tyranid.health = this.tyranid.health + 20;
+    this.tyranidMsg.innerText = `The tyranid recover ${recover} health points!`;
+    setTimeout(() => {
+      this._tyranidHealthInfoOut();
+    }, 6000);
   }
   _soldierStatsInfo() {
     if (this.soldier.health > 0) {
@@ -140,9 +168,15 @@ class Game {
     this._soldierAttackInfo();
     this._comeback();
   }
+  soldierHealth() {
+    this._soldierHealthInfo();
+    this._comeback();
+  }
   _comeback() {
     //tyranid attack
     // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
+    let posibility = Math.floor(Math.random() * 10);
+    console.log("estoy en comback", posibility);
     if (this.tyranid.health <= 0) {
       this.attackButton.style = "display: none";
       setTimeout(() => {
@@ -154,11 +188,17 @@ class Game {
         this._hideSoldierStats();
         this._hideTyranidStats();
       }, 6000);
-    } else {
+    } else if (this.tyranid.health > 0 && posibility % 2 === 0) {
       this.attackButton.style = "display: none";
       setTimeout(() => {
         this._tyranidAttackInfo();
-      }, 6500); //0.5 seg. de margen entre ataque soldier & nid.
+      }, 6500); //0.5 seg. between soldier and tyranid attack
+    } else if (this.tyranid.health > 0 && posibility % 2 !== 0) {
+      this.attackButton.style = "display: none";
+      setTimeout(() => {
+        this._tyranidHealthInfo();
+        console.log("estoy en cura", this.tyranid.health);
+      }, 6500);
     }
   }
 
@@ -270,17 +310,22 @@ class Game {
     this._assignControls();
     this._update();
     this.startFightButton.onclick = () => {
-      this.fightEvent.style = "display: none";
-      this._hideMapCanvas();
-      this._showFightCanvas();
-      this._showSoldierStats();
-      this._showTyranidStats();
-      this.drawCanvasMap = false;
-      this.drawCanvasFight = true;
       emperorSound.play();
+      setTimeout(() => {
+        this.fightEvent.style = "display: none";
+        this._hideMapCanvas();
+        this._showFightCanvas();
+        this._showSoldierStats();
+        this._showTyranidStats();
+        this.drawCanvasMap = false;
+        this.drawCanvasFight = true;
+      }, 3500);
     };
     this.attackButton.onclick = () => {
       this.soldierAttack();
+    };
+    this.healthButton.onclick = () => {
+      this.soldierHealth();
     };
   }
 }
