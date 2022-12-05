@@ -15,11 +15,53 @@ button {
   height: 600px;
   width: 1000px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  text-align: center;
   background-color: aquamarine;
+}
+.game-tittle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 1000px;
+  height: 75px;
+  background-color: #5a5b61;
+}
+.block1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.intro {
+  height: 400px;
+  width: fit-content;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: black;
+  background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
+  text-shadow: 0 0 5px #c8c8c8;
+  border: 5px solid whitesmoke;
+  border-radius: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+h3 {
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 10px;
+  border-bottom: 3px solid whitesmoke;
+}
+.video-intro {
+  background-color: #af4537;
+  background-image: url("../videos/start-radar.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 700px;
+  height: 400px;
 }
 /* ----------------- canvas styles ----------*/
 .screen-outputs {
