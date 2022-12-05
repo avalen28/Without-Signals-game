@@ -58,51 +58,72 @@ button {
   background-position: center;
   background-repeat: no-repeat;
 }
-#soldier-stats {
-  background-color: bisque;
-  width: 200px;
-  height: 45px;
+.stats-box {
+  background-color: #5a5b61;
+  color: #d0c1b4;
+  width: 220px;
+  height: 25px;
+  border: 5px solid #d0c1b4;
+  border-radius: 10px;
   font-size: 14px;
   position: absolute;
-  top: 100px;
-  left: 270px;
-  padding-top: 10px;
-  text-align: center;
+  padding: 5px 22px;
+  justify-content: center;
+  align-items: center;
+}
+#soldier-stats {
+  top: 20px;
+  left: 150px;
 }
 #tyranid-stats {
-  background-color: rgb(196, 255, 213);
-  width: 200px;
-  height: 45px;
-  font-size: 14px;
-  position: absolute;
   bottom: 150px;
   left: 465px;
-  padding-top: 10px;
-  text-align: center;
 }
 #attack-button {
-  width: 200px;
-  height: 50px;
-  font-size: 30px;
+  font-size: 40px;
   position: absolute;
-  bottom: 20px;
-  left: 400px;
-}
-
-#lose-page {
-  height: 600px;
-  width: 1000px;
-  border: 1px solid black;
-  background-color: rgb(212, 127, 108);
-  position: relative;
+  padding: 15px 20px;
+  bottom: 40px;
+  left: 350px;
+  justify-content: center;
+  align-items: center;
+  background-color: #af4537;
+  border: 5px solid #333437;
+  color: black;
 }
 #win-page {
   height: 600px;
   width: 1000px;
   border: 1px solid black;
-  background-color: rgb(172, 108, 212);
   position: relative;
-  align-items: center;
+  background-image: url(../images/win-game.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#lose-page {
+  height: 600px;
+  width: 1000px;
+  border: 1px solid black;
+  position: relative;
+  background-image: url(../images/lose-game3.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.info {
+  background-color: black;
+  color: azure;
+  width: 990px;
+  height: 100px;
+  border: 5px solid azure;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+}
+.end-text {
+  padding: 10px;
 }
 
 /* ----------------- events styles ----------*/

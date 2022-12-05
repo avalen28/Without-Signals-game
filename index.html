@@ -31,8 +31,8 @@
         height="600"
         class="hidden"
       ></canvas>
-      <div id="soldier-stats" class="hidden">Soldier 100HP</div>
-      <div id="tyranid-stats" class="hidden">Tyranid 100HP</div>
+      <div id="soldier-stats" class="hidden stats-box">Soldier 100HP</div>
+      <div id="tyranid-stats" class="hidden stats-box">Tyranid 100HP</div>
       <button id="attack-button" class="hidden">Attack!</button>
       <div id="soldier-msg" class="hidden fight-event">
         <h1>Soldier attack. Shows damage done and tyranid hp</h1>
@@ -45,13 +45,23 @@
     <!----------------- LOSE / WIN PAGE ----------->
 
     <div id="lose-page" class="hidden">
-      <h1>YOU DIE</h1>
-      <button id="return-start-button-lose">Return to Start Menu</button>
+      <div class="info">
+        <h1 class="end-text">
+          You die and can't send a message alert. The swarm is unleashed and the
+          humanity is under a terrible danger...
+        </h1>
+        <button id="return-start-button-lose">Return to Start Menu</button>
+      </div>
     </div>
 
     <div id="win-page" class="hidden">
-      <h1>YOU SURVIVE</h1>
-      <button id="return-start-button-win">Return to Start Menu</button>
+      <div class="info">
+        <h1 class="end-text">
+          A terrible truth is revealed. You survive and send a message alert.
+          The fight for the humanity begins
+        </h1>
+        <button id="return-start-button-win">Return to Start Menu</button>
+      </div>
     </div>
     <!----------------- SCRIPTS ----------->
     <script src="js/assets.js"></script>
