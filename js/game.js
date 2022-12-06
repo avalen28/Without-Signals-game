@@ -108,10 +108,13 @@ class Game {
     );
     setTimeout(() => {
       this._soldierAttackInfoOut();
-    }, 4000); // tiempo que muestra el mensaje soldier.
+    }, 4000); // Soldier message time
   }
   _soldierHealthInfoOut() {
     this.soldierMsg.style = "display: none";
+    if (this.soldier.healthNumbers === 0) {
+      this.healthButton.style = "display: none"; // <----- POINT!!!
+    }
   }
   //includes soldier health and Quotes
   _soldierHealthInfo() {

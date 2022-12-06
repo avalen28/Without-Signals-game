@@ -9,6 +9,7 @@ class Soldier {
     this.movement = true;
     this.healthNumbers = 1;
   }
+
   _generateDamage(initialStrengh) {
     let finalDmg = Math.floor(Math.random() * 10) * initialStrengh;
     return finalDmg;

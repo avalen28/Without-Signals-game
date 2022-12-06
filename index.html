@@ -9,89 +9,98 @@
     <title>Without Signals - The game</title>
   </head>
   <body>
-    <!----------------- START PAGE ----------->
-    <div id="start-page">
-      <div id="title">
-        <h1 class="game-tittle">Without Signals</h1>
-        <img id="speakers" src="./images/speaker.png" alt="speaker logo" />
-      </div>
-      <div class="block1">
-        <div class="green-screen">
-          <h3>Mision Info</h3>
-          <article>
-            A strange message of alert ends in a horrible scream and then
-            silence. The rescue groups didn't come back and they are declarated
-            dead. <br /><br />
-            The Imperial Forces send their finest warriors, the Space Marines to
-            resolve what happens inside the base.
-          </article>
+    <div class="container">
+      <!----------------- START PAGE ----------->
+      <div id="start-page">
+        <div id="title">
+          <h1 class="game-tittle">Without Signals</h1>
+          <img id="speakers" src="./images/speaker.png" alt="speaker logo" />
         </div>
-        <div class="video-intro"></div>
-      </div>
-      <div class="block2 controls">
-        <div class="info-controls">
-          <!--only name. no CSS style-->
-          <h3>Controls</h3>
-          <p>- You can move left or right.</p>
-          <p>- You can health yourself but only one.</p>
-          <p>
-            - Attack your enemy.The damage that you do and recive is random.
-          </p>
-          <p>
-            - Your enemy can helth himself more times, but he recovers less
-            health points
-          </p>
+        <div class="block1">
+          <div class="green-screen">
+            <h3>Mision Info</h3>
+            <article>
+              A strange message of alert ends in a horrible scream and then
+              silence. The rescue groups didn't come back and they are
+              declarated dead. <br /><br />
+              The Imperial Forces send their finest warriors, the Space Marines
+              to resolve what happens inside the base.
+            </article>
+          </div>
+          <div class="video-intro"></div>
         </div>
-        <button id="start">Go!</button>
+        <div class="block2 controls">
+          <div class="info-controls">
+            <!--only name. no CSS style-->
+            <h3>Controls</h3>
+            <p>- You can move left or right.</p>
+            <p>
+              - If your heal is under 50 hp, you can heal yourself but only one.
+            </p>
+            <p>
+              - Attack your enemy.The damage that you do and recive is random.
+            </p>
+            <p>
+              - Your enemy can heal himself more times, but he recovers less
+              health points.
+            </p>
+          </div>
+          <button id="start">Go!</button>
+        </div>
       </div>
-    </div>
-    <!----------------- MAP ----------->
-    <div class="screen-outputs">
-      <canvas id="canvas-map" width="1000" height="600" class="hidden"></canvas>
-      <div id="fight-event" class="hidden fight-event">
-        <h2>The horrible truth is revealed! Prepare yourself...</h2>
-        <button id="start-fight">Start Fight!</button>
+      <!----------------- MAP ----------->
+      <div class="screen-outputs">
+        <canvas
+          id="canvas-map"
+          width="1000"
+          height="600"
+          class="hidden"
+        ></canvas>
+        <div id="fight-event" class="hidden fight-event">
+          <h2>The horrible truth is revealed! Prepare yourself...</h2>
+          <button id="start-fight">Start Fight!</button>
+        </div>
       </div>
-    </div>
-    <!----------------- FIGHT ----------->
-    <div class="screen-outputs">
-      <canvas
-        id="canvas-fight"
-        width="1000"
-        height="600"
-        class="hidden"
-      ></canvas>
-      <div id="soldier-stats" class="hidden stats-box">Soldier 100HP</div>
-      <div id="tyranid-stats" class="hidden stats-box">Tyranid 100HP</div>
-      <button id="attack-button" class="hidden">Attack!</button>
-      <button id="health-button" class="hidden">Health!</button>
-      <div id="soldier-msg" class="hidden fight-event">
-        <h1>Soldier attack. Shows damage done and tyranid hp</h1>
+      <!----------------- FIGHT ----------->
+      <div class="screen-outputs">
+        <canvas
+          id="canvas-fight"
+          width="1000"
+          height="600"
+          class="hidden"
+        ></canvas>
+        <div id="soldier-stats" class="hidden stats-box">Soldier 100HP</div>
+        <div id="tyranid-stats" class="hidden stats-box">Tyranid 100HP</div>
+        <button id="attack-button" class="hidden">Attack!</button>
+        <button id="health-button" class="hidden">Health!</button>
+        <div id="soldier-msg" class="hidden fight-event">
+          <h1>Soldier attack. Shows damage done and tyranid hp</h1>
+        </div>
+        <div id="tyranid-msg" class="hidden fight-event">
+          <h1>Tyranid attack. Shows damage done and soldier hp</h1>
+        </div>
       </div>
-      <div id="tyranid-msg" class="hidden fight-event">
-        <h1>Tyranid attack. Shows damage done and soldier hp</h1>
-      </div>
-    </div>
 
-    <!----------------- LOSE / WIN PAGE ----------->
+      <!----------------- LOSE / WIN PAGE ----------->
 
-    <div id="lose-page" class="hidden">
-      <div class="info">
-        <h1 class="end-text">
-          You die and can't send a message alert. The swarm is unleashed and the
-          humanity is under a terrible danger...
-        </h1>
-        <button id="return-start-button-lose">Return to Start Menu</button>
+      <div id="lose-page" class="hidden">
+        <div class="info">
+          <h1 class="end-text">
+            You die and can't send a message alert. The swarm is unleashed and
+            the humanity is under a terrible danger...
+          </h1>
+          <button id="return-start-button-lose">Return to Start Menu</button>
+        </div>
       </div>
-    </div>
 
-    <div id="win-page" class="hidden">
-      <div class="info">
-        <h1 class="end-text">
-          A terrible truth is revealed. You survive and send a message alert.
-          The fight for the humanity begins
-        </h1>
-        <button id="return-start-button-win">Return to Start Menu</button>
+      <div id="win-page" class="hidden">
+        <div class="info">
+          <h1 class="end-text">
+            A terrible truth is revealed. You survive and send a message alert.
+            The fight for the humanity begins
+          </h1>
+          <button id="return-start-button-win">Return to Start Menu</button>
+        </div>
       </div>
     </div>
     <!----------------- SCRIPTS ----------->

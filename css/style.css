@@ -11,7 +11,19 @@ button {
   padding: 10px;
   width: fit-content;
 }
+body {
+  background-color: black;
+}
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+p {
+  padding-bottom: 5px;
+}
 /* ----------------- start styles ----------*/
 #start-page {
   height: 600px;
