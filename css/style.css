@@ -37,9 +37,10 @@ button {
 }
 .block1 {
   display: flex;
+  align-items: center;
 }
 .green-screen {
-  height: 400px;
+  height: 300px;
   width: fit-content;
   padding-left: 20px;
   padding-right: 20px;
@@ -60,7 +61,7 @@ button {
 .controls {
   background-color: black;
   color: azure;
-  height: 100px;
+  height: 200px;
   border: 5px solid azure;
   border-radius: 10px;
   bottom: 5px;
@@ -79,13 +80,13 @@ h3 {
   border-bottom: 3px solid whitesmoke;
 }
 .video-intro {
-  background-color: #af4537;
+  background-color: black;
   background-image: url("../videos/start-radar.gif");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 700px;
-  height: 400px;
+  width: 500px;
+  height: 300px;
   border: 5px solid azure;
   border-radius: 10px;
 }
@@ -141,21 +142,33 @@ h3 {
 }
 #soldier-stats {
   top: 20px;
-  left: 150px;
+  left: 160px;
 }
 #tyranid-stats {
-  bottom: 150px;
-  left: 465px;
+  bottom: 210px;
+  left: 600px;
 }
 #attack-button {
-  font-size: 40px;
+  font-size: 30px;
   position: absolute;
   padding: 15px 20px;
   bottom: 40px;
-  left: 350px;
+  left: 530px;
   justify-content: center;
   align-items: center;
   background-color: #af4537;
+  border: 5px solid #333437;
+  color: black;
+}
+#health-button {
+  font-size: 30px;
+  position: absolute;
+  padding: 15px 20px;
+  bottom: 40px;
+  left: 220px;
+  justify-content: center;
+  align-items: center;
+  background-color: #37af55;
   border: 5px solid #333437;
   color: black;
 }

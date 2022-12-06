@@ -1,7 +1,7 @@
 class Soldier {
   constructor() {
     this.health = 100;
-    this.strength = 5;
+    this.strength = 500;
     this.x = 0;
     this.y = 300;
     this.width = 200;
@@ -29,11 +29,12 @@ class Soldier {
       soldierHealthQuote = "I can do this all day... DIE XENO!";
     } else if (this.health < 50 && this.healthNumbers === 1) {
       this.healthNumbers = 0;
-      let recover = Math.floor(Math.random() * 50);
+      let recover = Math.floor(Math.random() * 40 + 10);
       this.health = this.health + recover;
       soldierHealthQuote = `Helix Gauntlet Activated. You recover ${recover} health points! Helix Gauntlet remaining:${this.healthNumbers}`;
     } else {
-      soldierHealthQuote = "My Helix Gauntlet is empty...";
+      soldierHealthQuote =
+        "My Helix Gauntlet is empty...but my faith is my shield!";
     }
     return soldierHealthQuote;
   }
