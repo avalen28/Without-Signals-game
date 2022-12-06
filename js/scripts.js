@@ -15,15 +15,18 @@ window.onload = function () {
   const tyranidMsg = document.getElementById("tyranid-msg");
   const soldierStats = document.getElementById("soldier-stats");
   const tyranidStats = document.getElementById("tyranid-stats");
-  //
   const returnStartButtonWin = document.getElementById(
     "return-start-button-win"
   );
   const returnStartButtonLose = document.getElementById(
     "return-start-button-lose"
   );
-
+  const speakers = document.getElementById("speakers");
+  speakers.onclick = function () {
+    introSound.play();
+  };
   startButton.onclick = function () {
+    introSound.pause();
     startPage.style = "display: none";
     canvasMap.style = "display: flex";
     const game = new Game(
