@@ -21,4 +21,9 @@ class Tyranid {
     }
     return tyranidStatus;
   }
+  tyranidHealth() {
+    let recover = Math.floor(Math.random() * 25);
+    this.health = this.health + recover;
+    return recover;
+  }
 }

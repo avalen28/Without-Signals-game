@@ -139,9 +139,9 @@ class Game {
   }
   _tyranidHealthInfo() {
     this.tyranidMsg.style = "display: flex";
-    let recover = Math.floor(Math.random() * 40);
-    this.tyranid.health = this.tyranid.health + recover;
-    this.tyranidMsg.innerText = `The tyranid recover ${recover} health points!`;
+    //    let recover = Math.floor(Math.random() * 40);
+    //    this.tyranid.health = this.tyranid.health + recover;
+    this.tyranidMsg.innerText = `The tyranid recover ${this.tyranid.tyranidHealth()} health points!`;
     setTimeout(() => {
       this._tyranidHealthInfoOut();
     }, 4000);
@@ -174,6 +174,7 @@ class Game {
     //tyranid attack
     // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
     let posibility = Math.round(Math.random() * 2);
+    console.log("ha salido la posibilidad", posibility);
     if (this.tyranid.health <= 0) {
       setTimeout(() => {
         this.drawCanvasFight = false;
@@ -184,14 +185,13 @@ class Game {
         this._hideSoldierStats();
         this._hideTyranidStats();
       }, 4000);
-    } else if (posibility >= 1) {
-      setTimeout(() => {
-        this._tyranidAttackInfo();
-      }, 4000); //0.5 seg. between soldier and tyranid attack
-    } else {
+    } else if (posibility === 0 && this.tyranid.health < 70) {
       setTimeout(() => {
         this._tyranidHealthInfo();
-        console.log("estoy en cura", this.tyranid.health);
+      }, 4000);
+    } else {
+      setTimeout(() => {
+        this._tyranidAttackInfo();
       }, 4000);
     }
   }
