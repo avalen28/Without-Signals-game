@@ -44,7 +44,7 @@ window.onload = function () {
       tyranidMsg,
       soldierStats,
       tyranidStats,
-      returnStartButtonWin //
+      returnStartButtonWin
     );
     game.start();
   };

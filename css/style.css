@@ -117,7 +117,7 @@ h3 {
 }
 #canvas-map {
   border: 1px solid black;
-  background-color: lightblue;
+  background-color: rgb(0, 0, 0);
   background-image: url(../images/pasillo.png);
   background-size: cover;
   background-position: center;
@@ -142,7 +142,7 @@ h3 {
 }
 #canvas-fight {
   border: 1px solid black;
-  background-color: rgb(230, 225, 173);
+  background-color: rgb(0, 0, 0);
   background-image: url(../images/fight1.jpeg);
   background-size: cover;
   background-position: center;

@@ -39,5 +39,5 @@ Run across the map, fight for your live and arrive to the exit.
 
 <!-- When you finish, add these links and commit -->
 
-- [Presentation slides]()
-- [Deployed game]()
+- [Presentation slides](https://slides.com/albertovalenzuelamunoz/without-signals)
+- [Deployed game](https://avalen28.github.io/Without-Signals-game/)

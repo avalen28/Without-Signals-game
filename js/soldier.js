@@ -9,9 +9,9 @@ class Soldier {
     this.movement = true;
     this.healthNumbers = 1;
     this.poolQuotes = [
-      "A storm of rending claws attacks with fury!.",
-      "The Tyranid jumps and bite you neck!.",
-      "the creature spits acid on you.",
+      "A storm of rending claws attacks with fury!",
+      "The Tyranid jumps and bites your neck!",
+      "The creature spits acid on you.",
     ];
     this.quoteSelected = 0;
   }
@@ -39,16 +39,13 @@ class Soldier {
   healthHp() {
     let soldierHealthQuote = "";
     if (this.health >= 50) {
-      soldierHealthQuote = "My faith is my shield anything can hurt me!";
+      soldierHealthQuote = "My faith is my shield nothing can hurt me!";
     } else if (this.health < 50 && this.healthNumbers === 1) {
       this.healthNumbers = 0;
       let recover = Math.floor(Math.random() * 10 + 40);
       this.health = this.health + recover;
       soldierHealthQuote = `Helix Gauntlet Activated. You recover ${recover} health points! Helix Gauntlet remaining:${this.healthNumbers}`;
-    } //else {
-    //soldierHealthQuote =
-    //"My Helix Gauntlet is empty...but my faith is my shield!";
-    //}
+    }
     return soldierHealthQuote;
   }
   moveLeft() {

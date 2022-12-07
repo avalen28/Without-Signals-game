@@ -1,6 +1,5 @@
 class Game {
   constructor(
-    //
     canvasMap,
     canvasFight,
     contextMap,
@@ -15,7 +14,7 @@ class Game {
     tyranidMsg,
     soldierStats,
     tyranidStats,
-    returnStartButtonWin //
+    returnStartButtonWin
   ) {
     this.canvasMap = canvasMap;
     this.drawCanvasMap = true;
@@ -37,9 +36,9 @@ class Game {
     this.tyranidMsg = tyranidMsg;
     this.soldierStats = soldierStats;
     this.tyranidStats = tyranidStats;
-    this.returnStartButtonWin = returnStartButtonWin; //
+    this.returnStartButtonWin = returnStartButtonWin;
   }
-  // ---------------------Move method (WIP)
+  // ---------------------Move method
 
   _assignControls() {
     document.addEventListener("keydown", (event) => {
@@ -57,7 +56,6 @@ class Game {
   }
   //---------------------- display methods
   _displayFightEvent() {
-    // evento para empezar batalla.
     setTimeout(() => {
       this.fightEvent.style = "display: flex";
     }, 1000);
@@ -108,12 +106,12 @@ class Game {
     );
     setTimeout(() => {
       this._soldierAttackInfoOut();
-    }, 4000); // Soldier message time
+    }, 4000);
   }
   _soldierHealthInfoOut() {
     this.soldierMsg.style = "display: none";
     if (this.soldier.healthNumbers === 0) {
-      this.healthButton.style = "display: none"; // <----- POINT!!!
+      this.healthButton.style = "display: none";
     }
   }
   //includes soldier health and Quotes
@@ -138,12 +136,10 @@ class Game {
     );
     setTimeout(() => {
       this._tyranidAttackInfoOut();
-    }, 4000); // tiempo que muestra el mensaje tyranido
+    }, 4000);
   }
   _tyranidHealthInfo() {
     this.tyranidMsg.style = "display: flex";
-    //    let recover = Math.floor(Math.random() * 40);
-    //    this.tyranid.health = this.tyranid.health + recover;
     this.tyranidMsg.innerText = `The tyranid recover ${this.tyranid.tyranidHealth()} health points!`;
     setTimeout(() => {
       this._tyranidHealthInfoOut();
@@ -174,10 +170,7 @@ class Game {
     this._comeback();
   }
   _comeback() {
-    //tyranid attack
-    // setTimeout si el bicho sigue vivo y yo tambien, tyranidAttack
     let posibility = Math.round(Math.random() * 2);
-    console.log("ha salido la posibilidad", posibility);
     if (this.tyranid.health <= 0) {
       setTimeout(() => {
         this.drawCanvasFight = false;
@@ -243,7 +236,6 @@ class Game {
   }
 
   _checkCollisionTrap() {
-    //trap-libertate-movement.
     if (this.soldier.x >= this.trapPosition && this.tyranid.health > 0) {
       this.soldier.movement = false;
       this._tyranidMoveDown();
@@ -256,7 +248,6 @@ class Game {
       this.tyranid.y + this.tyranid.height === this.soldier.y &&
       !this.fightEventIsActive
     ) {
-      //
       this.fightEventIsActive = true;
       this._displayFightEvent();
     }
@@ -280,7 +271,7 @@ class Game {
       }, 4000);
     }
   }
-  //---------------------permaworking
+  //---------------------constantly executed
   _update() {
     window.requestAnimationFrame(() => {
       this._update();
@@ -291,7 +282,6 @@ class Game {
         this._checkCollisionTrap();
         this._checkCollisionSoldierTyranid();
         this._endRouteSoldier();
-        // todas las funciones que se deben estar constantemente ejecutando
       } else if (this.drawCanvasFight) {
         this._cleanCanvasFight();
         this._drawTyranidFight();
