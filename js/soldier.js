@@ -14,6 +14,7 @@ class Soldier {
       "The creature spits acid on you.",
     ];
     this.quoteSelected = 0;
+    this.image = soldierImgRight;
   }
   _selectRandomQuote() {
     let max = this.poolQuotes.length;
@@ -49,13 +50,15 @@ class Soldier {
     return soldierHealthQuote;
   }
   moveLeft() {
-    if (this.movement) {
+    if (this.movement && this.x > 0) {
       this.x = this.x - 15;
     }
+    this.image = soldierImgLeft;
   }
   moveRight() {
     if (this.movement) {
       this.x = this.x + 15;
     }
+    this.image = soldierImgRight;
   }
 }

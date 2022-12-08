@@ -199,7 +199,7 @@ class Game {
   _drawSoldier() {
     this.ctxMap.fillStyle = "red";
     this.ctxMap.drawImage(
-      soldierImg,
+      this.soldier.image,
       this.soldier.x,
       this.soldier.y,
       this.soldier.width,

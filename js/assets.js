@@ -1,5 +1,8 @@
-const soldierImg = new Image();
-soldierImg.src = "./images/soldier2.png";
+const soldierImgRight = new Image();
+soldierImgRight.src = "./images/soldier2.png";
+
+const soldierImgLeft = new Image();
+soldierImgLeft.src = "./images/soldier1.png";
 
 const tyranidImg = new Image();
 tyranidImg.src = "./images/nid2.png";
